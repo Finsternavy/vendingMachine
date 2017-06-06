@@ -4,13 +4,13 @@ public class Bank {
 	double income; 
 	double change; 
 	double changeAvailable; 
-	double credit; 
+	double creditAvailable; 
 	  
-	  public Bank(double income, double change, double changeAvailable, double credit){
+	  public Bank(double income, double change, double changeAvailable, double creditAvailable){
 	    this.income = income;
 	    this.change = change;
 	    this.changeAvailable = changeAvailable;
-	    this.credit = credit;
+	    this.creditAvailable = creditAvailable;
 	  }
 	   
 	   
@@ -38,11 +38,11 @@ public class Bank {
 	   return changeAvailable;  
 	  } 
 	   
-	  public void setCredit(double credit){ 
-	   this.credit = credit;  
+	  public void setCredit(double creditAvailable){ 
+	   this.creditAvailable = creditAvailable;  
 	  } 
 	 
 	  public double getCredit(){ 
-	   return credit;  
+	   return creditAvailable;  
 	 } 
 }
