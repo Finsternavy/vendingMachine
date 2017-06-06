@@ -99,11 +99,11 @@ public class Dispenser {
 		products.add(bigRed);
 		
 		Drink coffee = new Drink("Coffee", 2.00, slotMax, slotMax, "Vanilla", true);
-		Drink water = new Drink("Water", 2.00, slotMax, slotMax, "Natural", true);
+		Drink water = new Drink("Water", 2.00, slotMax, slotMax, "Natural", false);
 		Drink tea = new Drink("Tea", 2.00, slotMax, slotMax, "Lemon", true);
-		Drink cola = new Drink("Cola", 2.00, slotMax, slotMax, "Root Beer", true);
-		Drink monster = new Drink("Monster", 2.00, slotMax, slotMax, "Original", true);
-		Drink redbull = new Drink("Redbull", 2.00, slotMax, slotMax, "Original", true);
+		Drink cola = new Drink("Cola", 2.00, slotMax, slotMax, "Root Beer", false);
+		Drink monster = new Drink("Monster", 2.00, slotMax, slotMax, "Original", false);
+		Drink redbull = new Drink("Redbull", 2.00, slotMax, slotMax, "Original", false);
 		drinks.add(coffee);
 		drinks.add(water);
 		drinks.add(tea);
