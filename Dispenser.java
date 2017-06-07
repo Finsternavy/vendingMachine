@@ -39,7 +39,7 @@ public class Dispenser {
 	// that item and adds the value to income. Adjusts credit value and change 
 	// as needed and for display purposes.
 	public void dispense(int numSelected) {
-		double credit = myBank.getCredit();
+		double credit = myBank.getCreditAvailable();
 		double price = snacks.get(numSelected).getPrice();
 		double inStock = snacks.get(numSelected).getCurrentStock();
 		// checks to make sure customer put in enough money
@@ -48,7 +48,7 @@ public class Dispenser {
 			snacks.get(numSelected).setCurrentStock(snacks.get(numSelected).getCurrentStock() - 1);
 			// adjusts financial's
 			myBank.setIncome(myBank.getIncome() + price);
-			myBank.setChange(myBank.getCredit() - price);
+			myBank.setChange(credit - price);
 			myBank.setChangeAvailable(myBank.getChangeAvailable() - myBank.getChange());
 			// if item out of stock
 		} else if (credit >= price && inStock < 1) {
