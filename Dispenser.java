@@ -20,6 +20,7 @@ public class Dispenser {
 	public static Bank myBank = new Bank(0.00, 0.00, 100.00, 0.00);
 
 	public Dispenser() {
+		this.createVendingMachine();
 	}
 
 	public Dispenser(int slotMax) {
@@ -122,7 +123,6 @@ public class Dispenser {
 
 	public static void main(String [] args){
 		Dispenser dispenser = new Dispenser();
-		dispenser.createVendingMachine();
 		System.out.println(dispenser.displayProducts());
 	}
 	
