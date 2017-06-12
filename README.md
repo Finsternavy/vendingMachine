@@ -6,9 +6,9 @@ Project begin date: 29MAY2017.
 
 This project is for CST-135 Computer Programming II, Grand Canyon University.
 
-Initial entry: 3JUN2017:
+Overview 
 If you use the Vending Machine then you will be able to choose between drinks and snacks. 
-The intent of this project is to create a realistic representation of a working vending machine and to have well defined classes that enhance readability and efficiency. The flow and intent of flow should be obvious and easily traceable. This program is not runnable at this point. No code has been generated to implement the classes and provide functionality. 
+The intent of this project is to create a realistic representation of a working vending machine and to have well defined classes that enhance readability and efficiency. The flow and intent of flow should be obvious and easily traceable. The base classes have been written to allow for functionality and are ready for GUI implementation. 
 The proposed flow of this project is intended to be deliberate and should be familiar to anyone who has used a vending machine. Each step of the process will be easy to understand and each screen will guide the user through the process. 
 The program will have two separate interfaces, one for a customer and one for a servicer(Boss). 
 Servicer(Boss) interface will allow necessary adjustments to products and inventory. The goal is ease of use. 
