@@ -49,8 +49,12 @@ public class Drink extends Product implements Comparable<Drink> {
 	  }
 	  
 	  @Override
-	  public int compareTo(Drink o) {
-		return 0;
+	  public int compareTo(Drink otherDrink) {
+		  int nameDiff = name.compareToIgnoreCase(otherDrink.name);
+		  if (nameDiff != 0) {
+			  return nameDiff;
+		  }	return (int) (price - otherDrink.price);
+
 	  }
 	  
 	  @Override
