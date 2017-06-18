@@ -1,8 +1,8 @@
 package vendingMachine;
 
-public class Drink extends Product{
+public class Drink extends Product implements Comparable<Drink> {
 	
-	  String flavor; 
+	String flavor; 
 	  boolean isHot; 
 	   
 	  public Drink(){ 
@@ -49,8 +49,13 @@ public class Drink extends Product{
 	  }
 	  
 	  @Override
+	  public int compareTo(Drink o) {
+		return 0;
+	  }
+	  
+	  @Override
 	  public String toString(){
 		  return "\n" + flavor + " " + name + "\nPrice: $" + price + "0 \nCurrent Stock: " + currentStock + "\nIs hot: " + isHot;
 	  }
-	  
+
 }

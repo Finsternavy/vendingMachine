@@ -1,6 +1,6 @@
 package vendingMachine;
 
-public abstract class Snack extends Product{
+public class Snack extends Product implements Comparable<Snack>{
 	
     public Snack () {
         super();
@@ -14,5 +14,11 @@ public abstract class Snack extends Product{
     	this.maxStock = maxQuantity;
 
     }
+
+	@Override
+	public int compareTo(Snack o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
