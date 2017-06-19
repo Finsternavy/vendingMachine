@@ -41,7 +41,7 @@ public class Chips extends Snack{
 	
 	@Override
 	public String toString() {
-		return "\n" + name + ":\nPrice: $" + price + "0\nIn Stock: " + currentStock + "\nServings per bag: " + servingSize;
+		return "\n" + name + ":\nPrice: $" + price;
 	}
 
 	

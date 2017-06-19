@@ -38,11 +38,11 @@ public class Bank {
 	   return changeAvailable;  
 	  } 
 	   
-	  public void setCredit(double creditAvailable){ 
+	  public void setCreditAvailable(double creditAvailable){ 
 	   this.creditAvailable = creditAvailable;  
 	  } 
 	 
-	  public double getCredit(){ 
+	  public double getCreditAvailable(){ 
 	   return creditAvailable;  
 	 } 
 }

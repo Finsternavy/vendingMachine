@@ -40,7 +40,7 @@ public class Candy extends Snack{
 	
 	@Override
 	public String toString() {
-		return "\n" + name + ":\nPrice: $" + price + "0\nIn Stock: " + currentStock + "\nIs Sour: " + isSour;
+		return "\n" + name + ":\nPrice: $" + price;
 	}
 	
 	
