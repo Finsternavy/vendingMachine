@@ -1,6 +1,6 @@
 package vendingMachine;
 
-public class Product {
+public class Product implements Comparable<Product>{
 	
 	  String name = "New Product"; 
 	  double price = 1.00; 
@@ -53,5 +53,20 @@ public class Product {
 	    public String toString(){
 	    	return name + " Price: $" + price;
 	    }
+	    
+		@Override
+		public int compareTo(Product other) {
+			if(getName().compareToIgnoreCase(other.getName()) > 0){
+				return 1;
+			}else if(getName().compareToIgnoreCase(other.getName()) < 0){
+				return -1;
+			}else if(getPrice() > other.getPrice()){
+				return 1;
+			}else if(getPrice() < other.getPrice()){
+				return -1;
+			}else{
+				return 0;
+			}
+		}
 	
 }
