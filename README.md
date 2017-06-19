@@ -37,3 +37,5 @@ Or...
 3. Select desired method
 4. Open an IDE
 5. Click file > Open Project > Select the file location you chose when downloading
+6. Select the Dispenser Class
+7. Right click > select Run as Application
