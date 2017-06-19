@@ -19,7 +19,7 @@ Admin login > passcode entry > select area of interest (inventory / financials /
 
 ### Before installing Vending Machine you may need:
 
--A [GitHub account] (https://github.com/)
+-A [GitHub account](https://github.com/)
 -Eclipse, Netbeans, or some other Integrated Development Environment(IDE)
 -SourceTree
 
