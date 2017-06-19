@@ -5,8 +5,6 @@ package vendingMachine;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author Finst
@@ -125,13 +123,7 @@ public class Dispenser {
 
 	public static void main(String [] args){
 		Dispenser dispenser = new Dispenser();
-		
-		Collections.sort(products);
-
 		System.out.println(dispenser.displayProducts());
-		
-
-		
 	}
 	
 }

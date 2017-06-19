@@ -41,7 +41,7 @@ public class Gum extends Snack{
 	
 	@Override
 	public String toString(){
-		return "\n" + name + ":\nPrice: " + price;
+		return "\n" + name + ":\nPrice: " + price + "\nCurrent Stuck: " + currentStock + "\nSticks: " + sticksInPackage;
 	}
 	
 	
