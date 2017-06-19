@@ -67,33 +67,5 @@ public class Drink extends Product implements Comparable<Product>{
 			return 0;
 		}
 	}
-	
-	public static void main(String[] args){
-		
-		Drink Coke = new Drink("Coke", 1.00);
-		Drink Coke2 = new Drink ("Coke", 1.25);
-		Drink Pepsi = new Drink("Pepsi", 1.50);
-		
-		System.out.println("Compare to returns: " + Coke.compareTo(Pepsi));
-		int result = Coke.compareTo(Pepsi);
-		int resultPrice = Coke.compareTo(Coke2);
-		
-		if(result < 0)
-			System.out.println(Coke.getName() + " comes before " + Pepsi.getName());
-		else if(result > 0)
-			System.out.println(Pepsi.getName() + " comes before " + Coke.getName());
-		else
-			System.out.println(Coke.getName() + " is equal to " + Pepsi.getName());
-		
-		System.out.println("Compare to returns: " + Coke.compareTo(Coke2));
-		
-		if(resultPrice < 0)
-			System.out.println(Coke.getName() + " that costs " + Coke.getPrice() +" comes before " + Coke2.getName() +" that costs " + Coke2.getPrice());
-		else if(resultPrice > 0)
-			System.out.println(Coke2.getName() + " that costs " + Coke2.getPrice() + " comes before " + Coke.getName() + " that costs " + Coke.getPrice());
-		else
-			System.out.println(Coke.getName() + " that costs " + Coke.getPrice() + " is equal to " + Coke2.getName() + " that costs " + Coke2.getPrice());
-		
-	}
 	  
 }
