@@ -33,6 +33,9 @@ public class Main extends Application {
 		HBox hbox = getHBox();
 		pane.setBottom(hbox);
 		
+		HBox chbox = getHBox();
+		pane.setBottom(chbox);
+		
 		pane.setTop(getGridPane());
 		
 		Scene scene = new Scene(pane);
@@ -51,17 +54,55 @@ public class Main extends Application {
 		
 		Text category = new Text("Categories");
 		category.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
-		grid.add(category, 1, 0);
+		grid.add(category, 4, 0);
 		
-		/*ImageView imageDorito = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
-		grid.add(imageDorito, 0, 0, 1, 2);
+		ImageView imageDorito = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageDorito, 1, 1, 2, 1);
+		
 		ImageView imageLay = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
-		grid.add(imageLay, 0, 5, 0, 5);
+		grid.add(imageLay, 3, 1, 2, 1);
+
 		ImageView imageSunChip = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
-		grid.add(imageSunChip, 0, 10, 0, 10);
+		grid.add(imageSunChip, 5, 1, 2, 1);
+		
 		ImageView imageMissVickie = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
-		grid.add(imageMissVickie, 0, 15, 0, 15);
-		grid.getChildren().addAll(imageDorito, imageLay, imageSunChip, imageMissVickie);*/
+		grid.add(imageMissVickie, 7, 1, 2, 1);
+		
+		ImageView imageCoke = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageCoke, 1, 2, 2, 1);
+		
+		ImageView imageSprite = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageSprite, 3, 2, 2, 1);
+		
+		ImageView imageJuice = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageJuice, 5, 2, 2, 1);
+		
+		ImageView imageWater = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageWater, 7, 2, 2, 1);
+		
+		ImageView imageMM = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageMM, 1, 3, 2, 1);
+		
+		ImageView imageStarburst = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageStarburst, 3, 3, 2, 1);
+		
+		ImageView imageSkittles = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageSkittles, 5, 3, 2, 1);
+		
+		ImageView imageSnicker = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageSnicker, 7, 3, 2, 1);
+		
+		ImageView imageTrident= new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageTrident, 1, 4, 2, 1);
+		
+		ImageView imageExtra = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageExtra, 3, 4, 2, 1);
+		
+		ImageView imageMint = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageMint, 5, 4, 2, 1);
+		
+		ImageView imageRed = new ImageView(new Image("https://vignette3.wikia.nocookie.net/doritos/images/6/62/Doritos-nacho-cheese.gif/revision/latest?cb=20130727212532"));
+		grid.add(imageRed, 7, 4, 2, 1);
 		
 		return grid;
 	}
@@ -70,7 +111,7 @@ public class Main extends Application {
 		// TODO Auto-generated method stub
 		HBox hBox = new HBox(15);
 		hBox.setPadding(new Insets(15, 12, 15, 12));
-		hBox.setStyle("-fx-background-color: black");
+		hBox.setStyle("-fx-background-color: green");
 		
         Button drinkBtn = new Button("Drinks");
         Button chipsBtn = new Button("Chips");
