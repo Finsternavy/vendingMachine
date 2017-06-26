@@ -45,7 +45,7 @@ public class Welcome extends Application {
 	Button candyBackButton;
 	Button gumBackButton;
 	Button backButton;
-	Button done;
+	Button doneButton;
 	GridPane layout;
 	Stage window;
 	Scene drinks, chips, candy, gum, home, receipt;
