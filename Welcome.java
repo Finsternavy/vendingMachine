@@ -361,12 +361,6 @@ public class Welcome extends Application {
 		primaryStage.setScene(home);
 		primaryStage.show();
 
-
-		
-		ImageView imageRed = new ImageView(new Image("https://www.sciencenews.org/sites/default/files/4096"));
-		imageRed.setFitHeight(50);
-		imageRed.setFitWidth(75);
-		gumLayout.add(imageRed, 7, 4, 2, 1);	
 	}
 	
 	public static void main(String[] args){
