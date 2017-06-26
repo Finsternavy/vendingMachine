@@ -49,7 +49,6 @@ public class Welcome extends Application {
 	GridPane layout;
 	Stage window;
 	Scene drinks, chips, candy, gum, home, receipt;
-	public static ArrayList<Product> cart = new ArrayList<>();
 	
 	Dispenser dispenser = new Dispenser();
 	
@@ -299,10 +298,7 @@ public class Welcome extends Application {
 		
 		Label receiptText = new Label();
 		GridPane.setConstraints(receiptText, 1, 1);
-		
-		StringBuilder purchase = new StringBuilder();
-		
-		
+			
 		done = new Button("DONE");
 		GridPane.setConstraints(done, 2, 3);
 		done.setMinSize(250.0, 50.0);
@@ -319,7 +315,7 @@ public class Welcome extends Application {
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
-		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, backButton, homeLable, done);
+		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, done);
 		
 		GridPane drinksLayout = new GridPane();
 		drinksLayout.setPadding(new Insets(10, 10, 10, 10));
