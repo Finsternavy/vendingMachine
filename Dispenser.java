@@ -43,11 +43,6 @@ public class Dispenser {
 		return slotMax;
 	}
 	
-	public void setTotal(){
-		for(int i = 0; i < cart.size(); i ++){
-			total = total + cart.get(i).getPrice();
-		}
-	}
 
 	// call dispense() of item to adjust currentStock and gets the price of
 	// that item and adds the value to income. Adjusts credit value and change 
@@ -136,11 +131,7 @@ public class Dispenser {
 		Collections.sort(products);
 
 		System.out.println(dispenser.displayProducts());
-		
-		System.out.println("\n\n\n\n\n" + products.toString());
-		
-
-		
+	
 	}
 	
 }
