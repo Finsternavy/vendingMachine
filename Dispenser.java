@@ -15,10 +15,15 @@ import java.util.List;
 public class Dispenser {
 
 	public int slotMax = 20;
+	public double total = 0;
 
 	public static ArrayList<Product> snacks = new ArrayList<>();
 	public static ArrayList<Product> drinks = new ArrayList<>();
 	public static ArrayList<Product> products = new ArrayList<>();
+	public static ArrayList<Product> chips = new ArrayList<>();
+	public static ArrayList<Product> candy = new ArrayList<>();
+	public static ArrayList<Product> gum = new ArrayList<>();
+	public static ArrayList<Product> cart = new ArrayList<>();
 	public static Bank myBank = new Bank(0.00, 0.00, 100.00, 0.00);
 
 	public Dispenser() {
@@ -37,88 +42,90 @@ public class Dispenser {
 	public int getSlotMax() {
 		return slotMax;
 	}
+	
+	public void setTotal(){
+		for(int i = 0; i < cart.size(); i ++){
+			total = total + cart.get(i).getPrice();
+		}
+	}
 
 	// call dispense() of item to adjust currentStock and gets the price of
 	// that item and adds the value to income. Adjusts credit value and change 
 	// as needed and for display purposes.
+
 	public void dispense(int numSelected) {
-		double credit = myBank.getCreditAvailable();
-		double price = snacks.get(numSelected).getPrice();
-		int inStock = snacks.get(numSelected).getCurrentStock();
-		// checks to make sure customer put in enough money
-		if (credit >= price && inStock > 0) {
-			// adjusts item stock levels
-			snacks.get(numSelected).setCurrentStock(inStock - 1);
-			// adjusts financial's
-			myBank.setIncome(myBank.getIncome() + price);
-			myBank.setChange(credit - price);
-			myBank.setChangeAvailable(myBank.getChangeAvailable() - myBank.getChange());
-			// if item out of stock
-		} else if (credit >= price && inStock < 1) {
-			System.out.println("Sorry! Sold out.");
-			// if not enough credit
-		} else {
-			System.out.println("Not enough credit. Please add credit and try again.");
-		}
+		cart.add(products.get(numSelected));
+		double newTotal = total + products.get(numSelected).getPrice();
+		total = newTotal;
 	}
 
 	public void restock(int numSelected){
-		snacks.get(numSelected).setCurrentStock(getSlotMax());
+		
 	}
 	
 	public String displayProducts(){
 		return products.toString();
 		}
+	
+	public String displayCart(){
+		return cart.toString();
+	}
 
 	
 	public void createVendingMachine() {
 
-		Snack bakedChips = new Chips("Baked Chips", 1.00, slotMax, slotMax, 2);
-		Snack bbqChips = new Chips("BBQ Chips", 1.00, slotMax, slotMax, 2);
-		Snack doritos = new Chips("Doritos", 1.00, slotMax, slotMax, 2);
-		Snack skittles = new Candy("Skittles", 1.50, slotMax, slotMax, false);
-		Snack snickers = new Candy("Snicker", 1.50, slotMax, slotMax, false);
-		Snack mints = new Candy("Mints", 1.50, slotMax, slotMax, false);
-		Snack juicyFruit = new Gum("Juicy Fruit", 0.50, slotMax, slotMax, 5);
-		Snack spearmint = new Gum("Spearmint", 0.50, slotMax, slotMax, 5);
-		Snack bigRed = new Gum("Big Red", 1.00, slotMax, slotMax, 15);
-		snacks.add(bakedChips);
-		snacks.add(bbqChips);
-		snacks.add(doritos);
-		snacks.add(skittles);
-		snacks.add(snickers);
-		snacks.add(mints);
-		snacks.add(juicyFruit);
-		snacks.add(spearmint);
-		snacks.add(bigRed);
-		products.add(bakedChips);
-		products.add(bbqChips);
+		Snack lays = new Chips("Lays", 1.00);
+		Snack sunChips = new Chips("Sun Chips", 1.00);
+		Snack doritos = new Chips("Doritos", 1.00);
+		Snack missVickies = new Chips("Miss Vickie's", 1.00);
+		Snack skittles = new Candy("Skittles", 1.50);
+		Snack snickers = new Candy("Snicker", 1.50);
+		Snack starburst = new Candy("Starburst", 1.50);
+		Snack mandM = new Gum("M&M's", 1.50);
+		Snack bigRed = new Gum("Big Red", 1.00);
+		Snack trident = new Gum("Trident", 1.00);
+		Snack extra = new Gum("Extra", 1.00);
+		Snack wrigleys = new Gum("Wrigleys", 1.00);
+		chips.add(lays);
+		chips.add(sunChips);
+		chips.add(doritos);
+		chips.add(missVickies);
+		candy.add(skittles);
+		candy.add(snickers);
+		candy.add(starburst);
+		candy.add(mandM);
+		gum.add(bigRed);
+		gum.add(trident);
+		gum.add(extra);
+		gum.add(wrigleys);
+		products.add(lays);
+		products.add(sunChips);
 		products.add(doritos);
+		products.add(missVickies);
 		products.add(skittles);
 		products.add(snickers);
-		products.add(mints);
-		products.add(juicyFruit);
-		products.add(spearmint);
+		products.add(starburst);
+		products.add(mandM);
 		products.add(bigRed);
+		products.add(trident);
+		products.add(extra);
+		products.add(wrigleys);
+
 		
-		Drink coffee = new Drink("Coffee", 2.00, slotMax, slotMax, "Vanilla", true);
-		Drink water = new Drink("Water", 2.00, slotMax, slotMax, "Natural", false);
-		Drink tea = new Drink("Tea", 2.00, slotMax, slotMax, "Lemon", true);
-		Drink cola = new Drink("Cola", 2.00, slotMax, slotMax, "Root Beer", false);
-		Drink monster = new Drink("Monster", 2.00, slotMax, slotMax, "Original", false);
-		Drink redbull = new Drink("Redbull", 2.00, slotMax, slotMax, "Original", false);
-		drinks.add(coffee);
-		drinks.add(water);
-		drinks.add(tea);
-		drinks.add(cola);
-		drinks.add(monster);
-		drinks.add(redbull);
-		products.add(coffee);
-		products.add(water);
-		products.add(tea);
-		products.add(cola);
-		products.add(monster);
-		products.add(redbull);
+		Drink cocaCola = new Drink("Coca-Cola", 1.50);
+		Drink sprite = new Drink("Sprite", 1.50);
+		Drink minuteMain = new Drink("Minute Maid", 2.00);
+		Drink dasani = new Drink("Dasani", 1.00);
+
+		drinks.add(cocaCola);
+		drinks.add(sprite);
+		drinks.add(minuteMain);
+		drinks.add(dasani);
+		products.add(cocaCola);
+		products.add(sprite);
+		products.add(minuteMain);
+		products.add(dasani);
+
 	
 
 	}
@@ -129,6 +136,8 @@ public class Dispenser {
 		Collections.sort(products);
 
 		System.out.println(dispenser.displayProducts());
+		
+		System.out.println("\n\n\n\n\n" + products.toString());
 		
 
 		

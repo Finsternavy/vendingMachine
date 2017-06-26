@@ -17,16 +17,12 @@ public class Chips extends Snack{
 		super();
 		this.name = name;
 		this.price = price;
-		this.currentStock = currentStock;
-		this.maxStock = maxStock;
 		this.servingSize = servingSize;
 	}
 	
 	public Chips(Chips chips){
 		this.name = chips.getName();
 		this.price = chips.getPrice();
-		this.currentStock = chips.getCurrentStock();
-		this.maxStock = chips.getMaxStock();
 		this.servingSize = chips.servingSize;
 	}
 	

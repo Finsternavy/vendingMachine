@@ -16,8 +16,6 @@ public class Gum extends Snack{
 	public Gum(String name, double price, int currentStock, int maxStock, int sticksInPackage){
 		this.name = name;
 		this.price = price;
-		this.currentStock = currentStock;
-		this.maxStock = maxStock;
 		this.sticksInPackage = sticksInPackage;
 	}
 	
@@ -25,8 +23,6 @@ public class Gum extends Snack{
 	public Gum(Gum gum){
 		this.name = gum.getName();
 		this.price = gum.getPrice();
-		this.currentStock = gum.currentStock;
-		this.maxStock = gum.maxStock;
 		this.sticksInPackage = gum.sticksInPackage;
 		
 	}

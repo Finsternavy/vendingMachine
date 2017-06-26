@@ -17,16 +17,12 @@ public class Candy extends Snack{
 		super();
 		this.name = name;
 		this.price = price;
-		this.currentStock = currentStock;
-		this.maxStock = maxStock;
 		this.isSour = isSour;
 	}
 	
 	public Candy(Candy candy){
 		this.name = candy.getName();
 		this.price = candy.getPrice();
-		this.currentStock = candy.currentStock;
-		this.maxStock = candy.maxStock;
 		this.isSour = candy.isSour;
 	}
 	

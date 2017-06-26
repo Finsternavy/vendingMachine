@@ -10,8 +10,6 @@ public abstract class Snack extends Product implements Comparable<Product>{
     	super ();
     	this.name = name;
     	this.price = price;
-    	this.currentStock = quantity;
-    	this.maxStock = maxQuantity;
 
     }
     
