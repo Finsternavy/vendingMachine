@@ -56,7 +56,7 @@ public class Welcome extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		window = primaryStage;
-		primaryStage.setTitle("Title of the Window");
+		window.setTitle("Vending Machine");
 		
 		drinksButton = new Button("DRINKS");
 		GridPane.setConstraints(drinksButton, 1, 1);
@@ -299,10 +299,10 @@ public class Welcome extends Application {
 		Label receiptText = new Label();
 		GridPane.setConstraints(receiptText, 1, 1);
 			
-		done = new Button("DONE");
-		GridPane.setConstraints(done, 2, 3);
-		done.setMinSize(250.0, 50.0);
-		done.setOnAction(e -> {
+		doneButton = new Button("DONE");
+		GridPane.setConstraints(doneButton, 2, 3);
+		doneButton.setMinSize(250.0, 50.0);
+		doneButton.setOnAction(e -> {
 			receiptText.setText("Your purchase: \n" + dispenser.cart.toString() + "\nTotal: $" + dispenser.total + "0");
 			window.setScene(receipt);});
 		
@@ -315,7 +315,7 @@ public class Welcome extends Application {
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
-		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, done);
+		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton);
 		
 		GridPane drinksLayout = new GridPane();
 		drinksLayout.setPadding(new Insets(10, 10, 10, 10));
