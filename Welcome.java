@@ -176,7 +176,8 @@ public class Welcome extends Application {
 			ImageView starburstView = new ImageView(starburstImage);
 			starburstView.setFitHeight(200);
 			starburstView.setFitWidth(150);
-			starburstButton.setGraphic(starburstView);			GridPane.setConstraints(starburstButton, 1, 1);
+			starburstButton.setGraphic(starburstView);			
+			GridPane.setConstraints(starburstButton, 1, 1);
 			starburstButton.setMinSize(250.0, 50.0);
 			starburstButton.setOnAction(e -> {
 				dispenser.dispense(6);
@@ -187,7 +188,8 @@ public class Welcome extends Application {
 			ImageView skittlesView = new ImageView(skittlesImage);
 			skittlesView.setFitHeight(200);
 			skittlesView.setFitWidth(150);
-			skittlesButton.setGraphic(skittlesView);			GridPane.setConstraints(skittlesButton, 1, 2);
+			skittlesButton.setGraphic(skittlesView);			
+			GridPane.setConstraints(skittlesButton, 1, 2);
 			skittlesButton.setMinSize(250.0, 50.0);
 			skittlesButton.setOnAction(e -> {
 				dispenser.dispense(4);
@@ -198,7 +200,8 @@ public class Welcome extends Application {
 			ImageView snickersView = new ImageView(snickersImage);
 			snickersView.setFitHeight(200);
 			snickersView.setFitWidth(150);
-			snickersButton.setGraphic(snickersView);			GridPane.setConstraints(snickersButton, 2, 1);
+			snickersButton.setGraphic(snickersView);			
+			GridPane.setConstraints(snickersButton, 2, 1);
 			snickersButton.setMinSize(250.0, 50.0);
 			snickersButton.setOnAction(e -> {
 				dispenser.dispense(5);
@@ -209,7 +212,8 @@ public class Welcome extends Application {
 			ImageView mandMView = new ImageView(mandMImage);
 			mandMView.setFitHeight(200);
 			mandMView.setFitWidth(150);
-			mandMButton.setGraphic(mandMView);			GridPane.setConstraints(mandMButton, 2, 2);
+			mandMButton.setGraphic(mandMView);			
+			GridPane.setConstraints(mandMButton, 2, 2);
 			mandMButton.setMinSize(250.0, 50.0);
 			mandMButton.setOnAction(e -> {
 				dispenser.dispense(7);
@@ -225,7 +229,8 @@ public class Welcome extends Application {
 			ImageView tridentView = new ImageView(tridentImage);
 			tridentView.setFitHeight(200);
 			tridentView.setFitWidth(150);
-			tridentButton.setGraphic(tridentView);			GridPane.setConstraints(tridentButton, 1, 1);
+			tridentButton.setGraphic(tridentView);			
+			GridPane.setConstraints(tridentButton, 1, 1);
 			tridentButton.setMinSize(250.0, 50.0);
 			tridentButton.setOnAction(e -> {
 				dispenser.dispense(9);
@@ -236,7 +241,8 @@ public class Welcome extends Application {
 			ImageView extraView = new ImageView(extraImage);
 			extraView.setFitHeight(200);
 			extraView.setFitWidth(150);
-			extraButton.setGraphic(extraView);			GridPane.setConstraints(extraButton, 1, 2);
+			extraButton.setGraphic(extraView);			
+			GridPane.setConstraints(extraButton, 1, 2);
 			extraButton.setMinSize(250.0, 50.0);
 			extraButton.setOnAction(e -> {
 				dispenser.dispense(10);
@@ -247,7 +253,8 @@ public class Welcome extends Application {
 			ImageView wrigleysView = new ImageView(wrigleysImage);
 			wrigleysView.setFitHeight(200);
 			wrigleysView.setFitWidth(150);
-			wrigleysButton.setGraphic(wrigleysView);			GridPane.setConstraints(wrigleysButton, 2, 1);
+			wrigleysButton.setGraphic(wrigleysView);			
+			GridPane.setConstraints(wrigleysButton, 2, 1);
 			wrigleysButton.setMinSize(250.0, 50.0);
 			wrigleysButton.setOnAction(e -> {
 				dispenser.dispense(11);
@@ -258,7 +265,8 @@ public class Welcome extends Application {
 			ImageView bigRedView = new ImageView(bigRedImage);
 			bigRedView.setFitHeight(200);
 			bigRedView.setFitWidth(150);
-			bigRedButton.setGraphic(bigRedView);			GridPane.setConstraints(bigRedButton, 2, 2);
+			bigRedButton.setGraphic(bigRedView);			
+			GridPane.setConstraints(bigRedButton, 2, 2);
 			bigRedButton.setMinSize(250.0, 50.0);
 			bigRedButton.setOnAction(e -> {
 				dispenser.dispense(8);
