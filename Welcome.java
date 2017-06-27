@@ -1,22 +1,18 @@
 package vendingMachineGUIBoss;
 
-import java.util.ArrayList;
-
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import vendingMachine.Dispenser;
-import vendingMachine.Product;
 
 public class Welcome extends Application {
 	
@@ -46,7 +42,7 @@ public class Welcome extends Application {
 	Button gumBackButton;
 	Button backButton;
 	Button doneButton;
-	GridPane layout;
+	GridPane homeLayout;
 	Stage window;
 	Scene drinks, chips, candy, gum, home, receipt;
 	
@@ -57,12 +53,15 @@ public class Welcome extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		window = primaryStage;
 		window.setTitle("Title of the Window");
-		
+
+		//Displays all available drinks in new scene
 		drinksButton = new Button("DRINKS");
 		GridPane.setConstraints(drinksButton, 1, 1);
 		drinksButton.setMinSize(250.0, 50.0);
 		drinksButton.setOnAction(e -> window.setScene(drinks));
 		
+			//Clicking the button adds the product to cart and adds the price to total. Also goes back to home screen to make another selection
+			//or click done if no more items are wanted.
 			cocaColaButton = new Button("$1.50");
 			Image cocaColaImage = new Image(getClass().getResourceAsStream("coke.png"));
 			ImageView cocaColaView = new ImageView(cocaColaImage);
@@ -75,7 +74,7 @@ public class Welcome extends Application {
 				dispenser.dispense(12);
 				window.setScene(home);});
 			
-			
+			//same functionality as cocaColaButton
 			spriteButton = new Button("$1.50");
 			Image spriteImage = new Image(getClass().getResourceAsStream("sprite.png"));
 			ImageView spriteView = new ImageView(spriteImage);
@@ -88,6 +87,7 @@ public class Welcome extends Application {
 				dispenser.dispense(13);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			minuteMaidButton = new Button("$2.00");
 			Image minuteMaidImage = new Image(getClass().getResourceAsStream("minutemaid.png"));
 			ImageView minuteMaidView = new ImageView(minuteMaidImage);
@@ -100,6 +100,7 @@ public class Welcome extends Application {
 				dispenser.dispense(14);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			dasaniButton = new Button ("$1.00");
 			Image dasaniImage = new Image(getClass().getResourceAsStream("dasani.png"));
 			ImageView dasaniView = new ImageView(dasaniImage);
@@ -112,11 +113,13 @@ public class Welcome extends Application {
 				dispenser.dispense(15);
 				window.setScene(home);});
 		
+		//Displays all available chips in new scene
 		chipsButton = new Button("CHIPS");
 		GridPane.setConstraints(chipsButton, 2, 1);
 		chipsButton.setMinSize(250.0, 50.0);
 		chipsButton.setOnAction(e -> window.setScene(chips));
-		
+			
+			//same functionality as cocaColaButton
 			doritosButton = new Button("$1.00");
 			Image doritosImage = new Image(getClass().getResourceAsStream("Doritos-nacho-cheese.png"));
 			ImageView doritosView = new ImageView(doritosImage);
@@ -129,6 +132,7 @@ public class Welcome extends Application {
 				dispenser.dispense(2);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			laysButton = new Button("$1.00");
 			Image laysImage = new Image(getClass().getResourceAsStream("Lays_Chips.png"));
 			ImageView laysView = new ImageView(laysImage);
@@ -141,6 +145,7 @@ public class Welcome extends Application {
 				dispenser.dispense(0);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			sunChipsButton = new Button("$1.00");
 			Image sunChipsImage = new Image(getClass().getResourceAsStream("sunchips.png"));
 			ImageView sunChipsView = new ImageView(sunChipsImage);
@@ -153,6 +158,7 @@ public class Welcome extends Application {
 				dispenser.dispense(1);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			missVickiesButton = new Button("$1.00");
 			Image missVickiesImage = new Image(getClass().getResourceAsStream("miss-vickies-jalapeno.png"));
 			ImageView missVickiesView = new ImageView(missVickiesImage);
@@ -165,11 +171,13 @@ public class Welcome extends Application {
 				dispenser.dispense(3);
 				window.setScene(home);});
 		
+		//Displays all available candy in new scene
 		candyButton = new Button("CANDY");
 		GridPane.setConstraints(candyButton, 1, 2);
 		candyButton.setMinSize(250.0, 50.0);
 		candyButton.setOnAction(e -> window.setScene(candy));
 		
+			//same functionality as cocaColaButton
 			starburstButton = new Button("$1.50");
 			Image starburstImage = new Image(getClass().getResourceAsStream("starburst.png"));
 			ImageView starburstView = new ImageView(starburstImage);
@@ -182,6 +190,7 @@ public class Welcome extends Application {
 				dispenser.dispense(6);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			skittlesButton = new Button("$1.50");
 			Image skittlesImage = new Image(getClass().getResourceAsStream("skittles.png"));
 			ImageView skittlesView = new ImageView(skittlesImage);
@@ -194,6 +203,7 @@ public class Welcome extends Application {
 				dispenser.dispense(4);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			snickersButton = new Button("$1.50");
 			Image snickersImage = new Image(getClass().getResourceAsStream("Snickers.png"));
 			ImageView snickersView = new ImageView(snickersImage);
@@ -206,6 +216,7 @@ public class Welcome extends Application {
 				dispenser.dispense(5);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			mandMButton = new Button("$1.50");
 			Image mandMImage = new Image(getClass().getResourceAsStream("mandms.png"));
 			ImageView mandMView = new ImageView(mandMImage);
@@ -218,11 +229,13 @@ public class Welcome extends Application {
 				dispenser.dispense(7);
 				window.setScene(home);});
 		
+		//Displays all available gum in new scene
 		gumButton = new Button("GUM");
 		GridPane.setConstraints(gumButton, 2, 2);
 		gumButton.setMinSize(250.0, 50.0);
 		gumButton.setOnAction(e -> window.setScene(gum));
 		
+			//same functionality as cocaColaButton
 			tridentButton = new Button("$1.00");
 			Image tridentImage = new Image(getClass().getResourceAsStream("trident.png"));
 			ImageView tridentView = new ImageView(tridentImage);
@@ -235,6 +248,7 @@ public class Welcome extends Application {
 				dispenser.dispense(9);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			extraButton = new Button("$1.00");
 			Image extraImage = new Image(getClass().getResourceAsStream("extra.png"));
 			ImageView extraView = new ImageView(extraImage);
@@ -247,6 +261,7 @@ public class Welcome extends Application {
 				dispenser.dispense(10);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			wrigleysButton = new Button("$1.00");
 			Image wrigleysImage = new Image(getClass().getResourceAsStream("wrigleys.png"));
 			ImageView wrigleysView = new ImageView(wrigleysImage);
@@ -259,6 +274,7 @@ public class Welcome extends Application {
 				dispenser.dispense(11);
 				window.setScene(home);});
 			
+			//same functionality as cocaColaButton
 			bigRedButton = new Button("$1.00");
 			Image bigRedImage = new Image(getClass().getResourceAsStream("bigRed.png"));
 			ImageView bigRedView = new ImageView(bigRedImage);
@@ -271,100 +287,100 @@ public class Welcome extends Application {
 				dispenser.dispense(8);
 				window.setScene(home);});
 			
+		//Takes the user back to the home screen.
 		drinksBackButton = new Button("BACK TO HOME");
 		GridPane.setConstraints(drinksBackButton, 2, 0);
 		drinksBackButton.setMinSize(250.0, 50.0);
 		drinksBackButton.setOnAction(e -> window.setScene(home));
 		
+		//Takes the user back to the home screen.
 		chipsBackButton = new Button("BACK TO HOME");
 		GridPane.setConstraints(chipsBackButton, 2, 0);
 		chipsBackButton.setMinSize(250.0, 50.0);
 		chipsBackButton.setOnAction(e -> window.setScene(home));
 		
+		//Takes the user back to the home screen.
 		candyBackButton = new Button("BACK TO HOME");
 		GridPane.setConstraints(candyBackButton, 2, 0);
 		candyBackButton.setMinSize(250.0, 50.0);
 		candyBackButton.setOnAction(e -> window.setScene(home));
 		
+		//Takes the user back to the home screen.
 		gumBackButton = new Button("BACK TO HOME");
 		GridPane.setConstraints(gumBackButton, 2, 0);
 		gumBackButton.setMinSize(250.0, 50.0);
 		gumBackButton.setOnAction(e -> window.setScene(home));
 		
+		//Takes the user back to the home screen.
 		backButton = new Button("BACK TO HOME");
 		GridPane.setConstraints(backButton, 2, 0);
 		backButton.setMinSize(250.0, 50.0);
 		backButton.setOnAction(e -> window.setScene(home));
 		
+		//Placeholder for receipt
 		Label receiptText = new Label();
 		GridPane.setConstraints(receiptText, 1, 1);
 			
+		//Finalizes purchase. Opens the Receipt pane, waits for user interaction then resets cart and total value.
 		doneButton = new Button("DONE");
 		GridPane.setConstraints(doneButton, 2, 3);
 		doneButton.setMinSize(250.0, 50.0);
 		doneButton.setOnAction(e -> {
-			receiptText.setText("Your purchase: \n" + dispenser.cart.toString() + "\n\n\nTotal: $" + dispenser.total + "0");
+			receiptText.setText("Your purchase: \n" + Dispenser.cart.toString() + "\n\n\nTotal: $" + dispenser.total + "0");
 			ReceiptBox.display(receiptText);
-			dispenser.cart.clear();
+			Dispenser.cart.clear();
 			dispenser.total = 0;
 			window.setScene(home);});
 		
-		
+		//Displays Welcome text
 		Label homeLable = new Label("WELCOME!");
 		GridPane.setConstraints(homeLable, 1, 0);
+		homeLable.setAlignment(Pos.CENTER);
+		homeLable.setStyle("-fx-font: 24 arial;");
 		
-		
+		//Sets the layout for the home screen.
 		GridPane homeLayout = new GridPane();
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
 		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton);
 		
+		//Sets the layout for the drinks screen.
 		GridPane drinksLayout = new GridPane();
 		drinksLayout.setPadding(new Insets(10, 10, 10, 10));
 		drinksLayout.setVgap(10);
 		drinksLayout.setHgap(8);
 		drinksLayout.getChildren().addAll(cocaColaButton, spriteButton, minuteMaidButton, dasaniButton, drinksBackButton);
 		
+		//Sets the layout for the chips screen.
 		GridPane chipsLayout = new GridPane();
 		chipsLayout.setPadding(new Insets(10, 10, 10, 10));
 		chipsLayout.setVgap(10);
 		chipsLayout.setHgap(8);
 		chipsLayout.getChildren().addAll(doritosButton, laysButton, sunChipsButton, missVickiesButton, chipsBackButton);
 		
+		//Sets the layout for the candy screen.
 		GridPane candyLayout = new GridPane();
 		candyLayout.setPadding(new Insets(10, 10, 10, 10));
 		candyLayout.setVgap(10);
 		candyLayout.setHgap(8);
 		candyLayout.getChildren().addAll(starburstButton, skittlesButton, snickersButton, mandMButton, candyBackButton);
 		
+		//Sets the layout for the gum screen.
 		GridPane gumLayout = new GridPane();
 		gumLayout.setPadding(new Insets(10, 10, 10, 10));
 		gumLayout.setVgap(10);
 		gumLayout.setHgap(8);
 		gumLayout.getChildren().addAll(tridentButton, extraButton, wrigleysButton, bigRedButton, gumBackButton);
-		
-		GridPane receiptLayout = new GridPane();
-		receiptLayout.setPadding(new Insets(10, 10, 10, 10));
-		receiptLayout.setVgap(10);
-		receiptLayout.setHgap(8);
-		receiptLayout.getChildren().addAll(receiptText);
-		
-		
-		
+	
+		//Different screens in this application. Sets layout to each scene and defines the screen size.
 		home = new Scene(homeLayout, 545, 500);
-		
 		drinks = new Scene(drinksLayout, 545, 500);
-		
 		chips = new Scene(chipsLayout, 545, 500);
-		
 		candy = new Scene(candyLayout, 545, 500);
-		
 		gum = new Scene(gumLayout, 545, 500);
 		
-		receipt = new Scene(receiptLayout, 545, 500);
-		
-		
+		//Sets the home screen to display on start.
 		primaryStage.setScene(home);
 		primaryStage.show();
 
