@@ -8,6 +8,7 @@ The intent of this project is to create a realistic representation of a working 
 
 The next step in the process is to add an inventory manager class and screen to allow a servicer to manage inventory.
 We will also implement a simple animation that will run when an item is selected.
+We also plan to implement customer cash input functionality and make change functionality.
  
 #### Proposed customer flow:
 
