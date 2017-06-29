@@ -30,7 +30,7 @@ Admin login > passcode entry > select area of interest (inventory / financials /
 
 1. Open SourceTree
 2. Click <FILE> <NEW/CLONE>
-3. Copy the GitHub Vending Machine file's URL and past into the Source Path / URL field in SourceTree
+3. Copy the GitHub Vending Machine file's URL and paste into the Source Path / URL field in SourceTree
 4. Click "Clone"
 
 ### Or...
