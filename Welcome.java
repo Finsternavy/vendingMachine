@@ -8,10 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import vendingMachine.Dispenser;
-
 
 public class Welcome extends Application {
 	
@@ -41,35 +42,11 @@ public class Welcome extends Application {
 	Button gumBackButton;
 	Button backButton;
 	Button doneButton;
-	Button cancelButton;
-	Button inventoryButton;
-	Button inventoryBackButton;
-	Label outOfStockText;
 	GridPane homeLayout;
 	Stage window;
-	Scene drinks, chips, candy, gum, home, receipt, inventory;
+	Scene drinks, chips, candy, gum, home, receipt;
 	
-	Dispenser dispenser = new Dispenser(20);
-	
-	public enum CHOICE{
-		LAYS,
-		SUNCHIPS,
-		DORITOS,
-		MISSVICKIES,
-		SKITTLES,
-		SNICKERS,
-		STARBURST,
-		MANDM,
-		BIGRED,
-		TRIDENT,
-		EXTRA,
-		WRIGLEYS,
-		COCACOLA,
-		SPRITE,
-		MINUTEMAID,
-		DASANI
-		
-	}
+	Dispenser dispenser = new Dispenser();
 	
 
 	@Override
@@ -94,11 +71,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(cocaColaButton, 1, 1);
 			cocaColaButton.setMinSize(250.0, 50.0);
 			cocaColaButton.setOnAction(e -> {
-				if(Dispenser.cocaColaStock.size() != 0){
-				dispenser.dispense(Dispenser.cocaColaStock);
-				}else{
-					ReceiptBox.display(outOfStockText);
-				}
+				dispenser.dispense(12);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -111,7 +84,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(spriteButton, 1, 2);
 			spriteButton.setMinSize(250.0, 50.0);
 			spriteButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.spriteStock);
+				dispenser.dispense(13);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -124,7 +97,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(minuteMaidButton, 2, 1);
 			minuteMaidButton.setMinSize(250.0, 50.0);
 			minuteMaidButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.minuteMaidStock);
+				dispenser.dispense(14);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -137,7 +110,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(dasaniButton, 2, 2);
 			dasaniButton.setMinSize(250.0, 50.0);
 			dasaniButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.dasaniStock);
+				dispenser.dispense(15);
 				window.setScene(home);});
 		
 		//Displays all available chips in new scene
@@ -156,7 +129,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(doritosButton, 1, 1);
 			doritosButton.setMinSize(250.0, 50.0);
 			doritosButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.doritosStock);
+				dispenser.dispense(2);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -169,7 +142,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(laysButton, 1, 2);
 			laysButton.setMinSize(250.0, 50.0);
 			laysButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.laysStock);
+				dispenser.dispense(0);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -182,7 +155,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(sunChipsButton, 2, 1);
 			sunChipsButton.setMinSize(250.0, 50.0);
 			sunChipsButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.sunChipsStock);
+				dispenser.dispense(1);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -195,7 +168,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(missVickiesButton, 2, 2);
 			missVickiesButton.setMinSize(250.0, 50.0);
 			missVickiesButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.missVickiesStock);
+				dispenser.dispense(3);
 				window.setScene(home);});
 		
 		//Displays all available candy in new scene
@@ -214,7 +187,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(starburstButton, 1, 1);
 			starburstButton.setMinSize(250.0, 50.0);
 			starburstButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.starburstStock);
+				dispenser.dispense(6);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -227,7 +200,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(skittlesButton, 1, 2);
 			skittlesButton.setMinSize(250.0, 50.0);
 			skittlesButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.skittlesStock);
+				dispenser.dispense(4);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -240,7 +213,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(snickersButton, 2, 1);
 			snickersButton.setMinSize(250.0, 50.0);
 			snickersButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.snickersStock);
+				dispenser.dispense(5);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -253,7 +226,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(mandMButton, 2, 2);
 			mandMButton.setMinSize(250.0, 50.0);
 			mandMButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.mandMStock);
+				dispenser.dispense(7);
 				window.setScene(home);});
 		
 		//Displays all available gum in new scene
@@ -272,7 +245,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(tridentButton, 1, 1);
 			tridentButton.setMinSize(250.0, 50.0);
 			tridentButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.tridentStock);
+				dispenser.dispense(9);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -285,7 +258,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(extraButton, 1, 2);
 			extraButton.setMinSize(250.0, 50.0);
 			extraButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.extraStock);
+				dispenser.dispense(10);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -298,7 +271,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(wrigleysButton, 2, 1);
 			wrigleysButton.setMinSize(250.0, 50.0);
 			wrigleysButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.wrigleysStock);
+				dispenser.dispense(11);
 				window.setScene(home);});
 			
 			//same functionality as cocaColaButton
@@ -311,7 +284,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(bigRedButton, 2, 2);
 			bigRedButton.setMinSize(250.0, 50.0);
 			bigRedButton.setOnAction(e -> {
-				dispenser.dispense(Dispenser.bigRedStock);
+				dispenser.dispense(8);
 				window.setScene(home);});
 			
 		//Takes the user back to the home screen.
@@ -344,23 +317,14 @@ public class Welcome extends Application {
 		backButton.setMinSize(250.0, 50.0);
 		backButton.setOnAction(e -> window.setScene(home));
 		
-		inventoryBackButton = new Button("BACK TO HOME");
-		GridPane.setConstraints(inventoryBackButton, 2, 0);
-		inventoryBackButton.setMinSize(250.0, 50.0);
-		inventoryBackButton.setOnAction(e -> window.setScene(home));
-		
 		//Placeholder for receipt
 		Label receiptText = new Label();
 		GridPane.setConstraints(receiptText, 1, 1);
-		
-		Label outOfStockText = new Label();
-		GridPane.setConstraints(outOfStockText, 1, 1);
-		outOfStockText.setText("Sold Out! Please select another product.");
 			
 		//Finalizes purchase. Opens the Receipt pane, waits for user interaction then resets cart and total value.
 		doneButton = new Button("DONE");
 		GridPane.setConstraints(doneButton, 2, 3);
-		doneButton.setMinSize(150.0, 50.0);
+		doneButton.setMinSize(250.0, 50.0);
 		doneButton.setOnAction(e -> {
 			receiptText.setText("Your purchase: \n" + Dispenser.cart.toString() + "\n\n\nTotal: $" + dispenser.total + "0");
 			ReceiptBox.display(receiptText);
@@ -368,111 +332,18 @@ public class Welcome extends Application {
 			dispenser.total = 0;
 			window.setScene(home);});
 		
-		Label inventoryText = new Label();
-		GridPane.setConstraints(inventoryText, 1, 1);
-		
-		inventoryButton = new Button("Display Inventory");
-		GridPane.setConstraints(inventoryButton, 2, 0);
-		inventoryButton.setMinSize(250.0, 50.0);
-		inventoryButton.setOnAction(e -> {
-			inventoryText.setText("Current Inventory: \n\n" + Dispenser.laysStock.get(0).getName() + ": " + Dispenser.laysStock.size() + "\n"
-					+ Dispenser.doritosStock.get(0).getName() + ": " + Dispenser.doritosStock.size() + "\n"
-					+ Dispenser.sunChipsStock.get(0).getName() + ": " + Dispenser.sunChipsStock.size() + "\n"
-					+ Dispenser.missVickiesStock.get(0).getName() + ": " + Dispenser.missVickiesStock.size() + "\n"
-					+ Dispenser.skittlesStock.get(0).getName() + ": " + Dispenser.skittlesStock.size() + "\n"
-					+ Dispenser.snickersStock.get(0).getName() + ": " + Dispenser.snickersStock.size() + "\n"
-					+ Dispenser.mandMStock.get(0).getName() + ": " + Dispenser.mandMStock.size() + "\n"
-					+ Dispenser.starburstStock.get(0).getName() + ": " + Dispenser.starburstStock.size() + "\n"
-					+ Dispenser.tridentStock.get(0).getName() + ": " + Dispenser.tridentStock.size() + "\n"
-					+ Dispenser.bigRedStock.get(0).getName() + ": " + Dispenser.bigRedStock.size() + "\n"
-					+ Dispenser.extraStock.get(0).getName() + ": " + Dispenser.extraStock.size() + "\n"
-					+ Dispenser.wrigleysStock.get(0).getName() + ": " + Dispenser.wrigleysStock.size() + "\n"
-					+ Dispenser.cocaColaStock.get(0).getName() + ": " + Dispenser.cocaColaStock.size() + "\n"
-					+ Dispenser.spriteStock.get(0).getName() + ": " + Dispenser.spriteStock.size() + "\n"
-					+ Dispenser.minuteMaidStock.get(0).getName() + ": " + Dispenser.minuteMaidStock.size() + "\n"
-					+ Dispenser.dasaniStock.get(0).getName() + ": " + Dispenser.dasaniStock.size() + "\n");
-			ReceiptBox.display(inventoryText);
-			window.setScene(home);});
-		
-		
-		
-		cancelButton = new Button("CANCEL");
-		GridPane.setConstraints(cancelButton, 1, 3);
-		cancelButton.setMinSize(150.0, 50.0);
-		cancelButton.setOnAction(e -> {
-			int size = Dispenser.cart.size();
-			for(int i = 0; i < size; i++){
-				String name = Dispenser.cart.get(i).getName();
-				switch (name){
-				case "Lays":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.LAYS);
-					break;
-				case "Doritos":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.DORITOS);
-					break;
-				case "Sun Chips":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.SUNCHIPS);
-					break;
-				case "Miss Vickie's":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.MISSVICKIES);
-					break;
-				case "Snickers":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.SNICKERS);
-					break;
-				case "Skittles":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.SKITTLES);
-					break;
-				case "M&M's":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.MANDM);
-					break;
-				case "Starburst":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.STARBURST);
-					break;
-				case "Trident":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.TRIDENT);
-					break;
-				case "Extra":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.EXTRA);
-					break;
-				case "Big Red":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.BIGRED);
-					break;
-				case "Wrigley's":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.WRIGLEYS);
-					break;
-				case "Coca-Cola":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.COCACOLA);
-					break;
-				case "Sprite":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.SPRITE);
-					break;
-				case "Dasani":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.DASANI);
-					break;
-				case "Minute Maid":
-					dispenser.myInventoryManager.addOneToInventory(CHOICE.MINUTEMAID);
-					break;
-				}
-			};
-			Dispenser.cart.clear();
-			dispenser.total = 0;
-			window.setScene(home);
-		});
-		
-		
 		//Displays Welcome text
 		Label homeLable = new Label("WELCOME!");
 		GridPane.setConstraints(homeLable, 1, 0);
 		homeLable.setAlignment(Pos.CENTER);
-		homeLable.setStyle("-fx-font: 40 arial;");
-		homeLable.setMinSize(100, 100);
+		homeLable.setStyle("-fx-font: 24 arial;");
 		
 		//Sets the layout for the home screen.
 		GridPane homeLayout = new GridPane();
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
-		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton, cancelButton, inventoryButton);
+		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton);
 		
 		//Sets the layout for the drinks screen.
 		GridPane drinksLayout = new GridPane();
@@ -501,13 +372,6 @@ public class Welcome extends Application {
 		gumLayout.setVgap(10);
 		gumLayout.setHgap(8);
 		gumLayout.getChildren().addAll(tridentButton, extraButton, wrigleysButton, bigRedButton, gumBackButton);
-		
-		GridPane inventoryLayout = new GridPane();
-		inventoryLayout.setPadding(new Insets(10, 10, 10, 10));
-		inventoryLayout.setVgap(10);
-		inventoryLayout.setHgap(8);
-		inventoryLayout.getChildren().addAll(inventoryText, inventoryBackButton);
-		
 	
 		//Different screens in this application. Sets layout to each scene and defines the screen size.
 		home = new Scene(homeLayout, 545, 500);
@@ -515,7 +379,6 @@ public class Welcome extends Application {
 		chips = new Scene(chipsLayout, 545, 500);
 		candy = new Scene(candyLayout, 545, 500);
 		gum = new Scene(gumLayout, 545, 500);
-		inventory = new Scene(inventoryLayout, 545, 500);
 		
 		//Sets the home screen to display on start.
 		primaryStage.setScene(home);
