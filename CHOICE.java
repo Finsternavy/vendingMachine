@@ -1,0 +1,23 @@
+package vendingMachine;
+
+public enum CHOICE {
+	
+		LAYS,
+		SUNCHIPS,
+		DORITOS,
+		MISSVICKIES,
+		SKITTLES,
+		SNICKERS,
+		STARBURST,
+		MANDM,
+		BIGRED,
+		TRIDENT,
+		EXTRA,
+		WRIGLEYS,
+		COCACOLA,
+		SPRITE,
+		MINUTEMAID,
+		DASANI
+		
+	
+}
