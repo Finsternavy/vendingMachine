@@ -3,15 +3,12 @@
 ### Authors: Christopher Finster & Ingri Lopez.
 ###### Project begin date: 29MAY2017.
 ###### This project is for CST-135 Computer Programming II, Grand Canyon University.
+ 
+The intent of this project is to create a realistic representation of a working vending machine. In its current state, the program can be run using the Welcome class. The Welcome class contains all of the programs graphics functionality. The program allows a user to select a category (Drink, Chips, Candy, or Gum). After selecting a category a list of availble products in that category is displayed. When the user clicks that product, the product is added to their cart and they are returned to the category selection screen. The user can repeat this process as many times as they wish. When the user has finished selecting products, the done button can be clicked from the category selection screen. Clicking the done button opens a receipt screen that displays the name of each product selected, that items price, and the total price of all items selected. Closing the receipt screen empties the cart and returns the user to the category selection screen.  
 
-If you use the Vending Machine then you will be able to choose between drinks and snacks. 
-The intent of this project is to create a realistic representation of a working vending machine and to have well defined classes that enhance readability and efficiency. This program is not runnable at this point. No code has been generated to implement the classes and provide functionality. 
-
-The proposed flow of this project is intended to be deliberate and should be familiar to anyone who has used a vending machine. Each step of the process will be easy to understand and each screen will guide the user through the process. 
-The program will have two separate interfaces, one for a customer and one for a servicer(Boss). 
-Servicer(Boss) interface will allow necessary adjustments to products and inventory. 
-Customers should experience ease of use and a streamlined process with as few steps as possible. 
-Customer should also feel as if they have options and the ability to change their minds and their selection easily. 
+The next step in the process is to add an inventory manager class and screen to allow a servicer to manage inventory.
+We will also implement a simple animation that will run when an item is selected.
+We also plan to implement customer cash input functionality and make change functionality.
  
 #### Proposed customer flow:
 
@@ -33,7 +30,7 @@ Admin login > passcode entry > select area of interest (inventory / financials /
 
 1. Open SourceTree
 2. Click <FILE> <NEW/CLONE>
-3. Copy the GitHub Vending Machine file's URL and past into the Source Path / URL field in SourceTree
+3. Copy the GitHub Vending Machine file's URL and paste into the Source Path / URL field in SourceTree
 4. Click "Clone"
 
 ### Or...
@@ -43,5 +40,5 @@ Admin login > passcode entry > select area of interest (inventory / financials /
 3. Select desired method
 4. Open an IDE
 5. Click file > Open Project > Select the file location you chose when downloading
-6. Select the Dispenser Class
+6. Select the Welcome Class
 7. Right click > select Run as Application
