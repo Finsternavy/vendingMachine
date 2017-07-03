@@ -74,6 +74,9 @@ public class Dispenser {
 		myInventoryManager.reduceInventory(arrayList);
 		double newTotal = total + products.get(numSelected).getPrice();
 		total = newTotal;
+		myBank.setChange(myBank.getCreditAvailable() - products.get(numSelected).getPrice());
+		myBank.setCreditAvailable(myBank.getChange());
+		myBank.setIncome(myBank.getIncome() + products.get(numSelected).getPrice());
 		} else {
 			return;
 		}

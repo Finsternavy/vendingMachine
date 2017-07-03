@@ -21,7 +21,7 @@ public class Drink extends Product implements Comparable<Product>{
 	  
 	  @Override
 	  public String toString(){
-		  return "\n" + name + "\nPrice: $" + price;
+		  return "\n" + name + "\nPrice: $" + price + "0";
 	  }
 
 	@Override

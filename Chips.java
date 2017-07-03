@@ -34,10 +34,15 @@ public class Chips extends Snack{
 		return servingSize;
 	}
 	
+	public Object clone(){
+		return new Chips();
+		
+	}
+	
 	
 	@Override
 	public String toString() {
-		return "\n" + name + ":\nPrice: $" + price;
+		return "\n" + name + ":\nPrice: $" + price + "0";
 	}
 
 	
