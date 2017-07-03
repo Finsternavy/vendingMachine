@@ -68,11 +68,11 @@ public class Dispenser {
 	// that item and adds the value to income. Adjusts credit value and change 
 	// as needed and for display purposes.
 
-	public void dispense(ArrayList<Product> arrayList) {
+	public void dispense(int numSelected, ArrayList<Product> arrayList) {
 		if(arrayList.size() != 0){
 		cart.add((Product) arrayList.get(0));
 		myInventoryManager.reduceInventory(arrayList);
-		double newTotal = total + arrayList.get(0).getPrice();
+		double newTotal = total + products.get(numSelected).getPrice();
 		total = newTotal;
 		} else {
 			return;
