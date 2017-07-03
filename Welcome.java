@@ -48,6 +48,7 @@ public class Welcome extends Application {
 	Button fiveDollarButton;
 	Button tenDollarButton;
 	Button twentyDollarButton;
+	Button addFundsButton;
 	GridPane homeLayout;
 	Stage window;
 	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney;
@@ -870,12 +871,14 @@ public class Welcome extends Application {
 		});
 		
 
+		Label addMoneyWelcomeLabel = new Label("Welcome! Please deposit cash.");
+		GridPane.setConstraints(addMoneyWelcomeLabel, 1, 0);
 		
 		oneDollarButton = new Button("$1");
 		GridPane.setConstraints(oneDollarButton, 1, 1);
 		oneDollarButton.setMinSize(250.0, 50.0);
 		oneDollarButton.setOnAction(e -> {
-			Dispenser.myBank.setCreditAvailable(1.00);
+			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 1.00);
 			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
@@ -887,7 +890,7 @@ public class Welcome extends Application {
 		GridPane.setConstraints(fiveDollarButton, 2, 1);
 		fiveDollarButton.setMinSize(250.0, 50.0);
 		fiveDollarButton.setOnAction(e -> {
-			Dispenser.myBank.setCreditAvailable(5.00);
+			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 5.00);
 			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
@@ -899,7 +902,7 @@ public class Welcome extends Application {
 		GridPane.setConstraints(tenDollarButton, 1, 2);
 		tenDollarButton.setMinSize(250.0, 50.0);
 		tenDollarButton.setOnAction(e -> {
-			Dispenser.myBank.setCreditAvailable(10.00);
+			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 10.00);
 			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
@@ -911,13 +914,18 @@ public class Welcome extends Application {
 		GridPane.setConstraints(twentyDollarButton, 2, 2);
 		twentyDollarButton.setMinSize(250.0, 50.0);
 		twentyDollarButton.setOnAction(e -> {
-			Dispenser.myBank.setCreditAvailable(20.00);
+			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 20.00);
 			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			window.setScene(home);});
+		
+		addFundsButton = new Button("Add More Funds");
+		GridPane.setConstraints(addFundsButton, 2, 1);
+		addFundsButton.setMinSize(250.0, 50.0);
+		addFundsButton.setOnAction(e -> window.setScene(addMoney));
 
 		Label creditText = new Label();
 		GridPane.setConstraints(creditText, 1, 0);
@@ -934,7 +942,8 @@ public class Welcome extends Application {
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
-		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton, cancelButton, inventoryButton, homeCreditText);
+		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton, cancelButton, inventoryButton, homeCreditText, 
+				addFundsButton);
 		
 		//Sets the layout for the drinks screen.
 		GridPane drinksLayout = new GridPane();
@@ -974,7 +983,7 @@ public class Welcome extends Application {
 		insertMoney.setPadding(new Insets(10, 10, 10, 10));
 		insertMoney.setVgap(10);
 		insertMoney.setHgap(8);
-		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, creditText);
+		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel);
 		
 		//Different screens in this application. Sets layout to each scene and defines the screen size.
 		home = new Scene(homeLayout, 545, 500);
