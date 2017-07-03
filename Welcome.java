@@ -121,11 +121,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.cocaColaStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.cocaColaStock.get(0).getPrice()){
 			dispenser.dispense(12, Dispenser.cocaColaStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			
 			}
 			else if(Dispenser.cocaColaStock.size() < 1)
@@ -151,11 +151,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.spriteStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.spriteStock.get(0).getPrice()){
 			dispenser.dispense(13, Dispenser.spriteStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.spriteStock.size() < 1)
@@ -180,11 +180,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.minuteMaidStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.minuteMaidStock.get(0).getPrice()){
 			dispenser.dispense(14, Dispenser.minuteMaidStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.minuteMaidStock.size() < 1)
@@ -209,11 +209,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.dasaniStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.dasaniStock.get(0).getPrice()){
 			dispenser.dispense(15, Dispenser.dasaniStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.dasaniStock.size() < 1)
@@ -244,11 +244,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.doritosStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.doritosStock.get(0).getPrice()){
 			dispenser.dispense(2, Dispenser.doritosStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.doritosStock.size() < 1)
@@ -273,11 +273,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.laysStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.laysStock.get(0).getPrice()){
 			dispenser.dispense(0, Dispenser.laysStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.laysStock.size() < 1)
@@ -302,11 +302,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.sunChipsStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.sunChipsStock.get(0).getPrice()){
 			dispenser.dispense(1, Dispenser.sunChipsStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.sunChipsStock.size() < 1)
@@ -331,11 +331,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.missVickiesStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.missVickiesStock.get(0).getPrice()){
 			dispenser.dispense(3, Dispenser.missVickiesStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.missVickiesStock.size() < 1)
@@ -366,11 +366,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.starburstStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.starburstStock.get(0).getPrice()){
 			dispenser.dispense(6, Dispenser.starburstStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.starburstStock.size() < 1)
@@ -395,11 +395,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.skittlesStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.skittlesStock.get(0).getPrice()){
 			dispenser.dispense(4, Dispenser.skittlesStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.skittlesStock.size() < 1)
@@ -424,11 +424,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.snickersStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.snickersStock.get(0).getPrice()){
 			dispenser.dispense(5, Dispenser.snickersStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.snickersStock.size() < 1)
@@ -453,11 +453,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.mandMStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.mandMStock.get(0).getPrice()){
 			dispenser.dispense(7, Dispenser.mandMStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.mandMStock.size() < 1)
@@ -488,11 +488,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.tridentStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.tridentStock.get(0).getPrice()){
 			dispenser.dispense(9, Dispenser.tridentStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.tridentStock.size() < 1)
@@ -517,11 +517,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.extraStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.extraStock.get(0).getPrice()){
 			dispenser.dispense(10, Dispenser.extraStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.extraStock.size() < 1)
@@ -546,11 +546,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.wrigleysStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.wrigleysStock.get(0).getPrice()){
 			dispenser.dispense(11, Dispenser.wrigleysStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.wrigleysStock.size() < 1)
@@ -575,11 +575,11 @@ public class Welcome extends Application {
 			outOfStockText.setText("out of stock");
 			if(Dispenser.bigRedStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.bigRedStock.get(0).getPrice()){
 			dispenser.dispense(8, Dispenser.bigRedStock);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			
 			else if(Dispenser.bigRedStock.size() < 1)
@@ -640,11 +640,11 @@ public class Welcome extends Application {
 			Dispenser.cart.clear();
 			dispenser.total = 0;
 			Dispenser.myBank.setCreditAvailable(0.00);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			window.setScene(addMoney);});
 		
 		Label inventoryText = new Label();
@@ -689,176 +689,176 @@ public class Welcome extends Application {
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Doritos":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.DORITOS);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Sun Chips":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.SUNCHIPS);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Miss Vickie's":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.MISSVICKIES);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Snickers":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.SNICKERS);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Skittles":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.SKITTLES);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "M&M's":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.MANDM);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Starburst":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.STARBURST);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Trident":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.TRIDENT);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Extra":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.EXTRA);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Big Red":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.BIGRED);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Wrigley's":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.WRIGLEYS);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Coca-Cola":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.COCACOLA);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Sprite":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.SPRITE);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Dasani":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.DASANI);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				case "Minute Maid":
 					dispenser.myInventoryManager.addOneToInventory(CHOICE.MINUTEMAID);
 					Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + price);
 					Dispenser.myBank.setIncome(Dispenser.myBank.getIncome() - price);
 					Dispenser.myBank.setChange(Dispenser.myBank.getChange() + price);
-					homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-					gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+					homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+					gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 					break;
 				}
 			};
@@ -879,11 +879,11 @@ public class Welcome extends Application {
 		oneDollarButton.setMinSize(250.0, 50.0);
 		oneDollarButton.setOnAction(e -> {
 			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 1.00);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			window.setScene(home);});
 
 		fiveDollarButton = new Button("$5");
@@ -891,11 +891,11 @@ public class Welcome extends Application {
 		fiveDollarButton.setMinSize(250.0, 50.0);
 		fiveDollarButton.setOnAction(e -> {
 			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 5.00);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			window.setScene(home);});
 		
 		tenDollarButton = new Button("$10");
@@ -903,10 +903,10 @@ public class Welcome extends Application {
 		tenDollarButton.setMinSize(250.0, 50.0);
 		tenDollarButton.setOnAction(e -> {
 			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 10.00);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
 			window.setScene(home);});
 		
@@ -915,11 +915,11 @@ public class Welcome extends Application {
 		twentyDollarButton.setMinSize(250.0, 50.0);
 		twentyDollarButton.setOnAction(e -> {
 			Dispenser.myBank.setCreditAvailable(Dispenser.myBank.getCreditAvailable() + 20.00);
-			homeCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: " + Dispenser.myBank.getCreditAvailable() + "0");
+			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			window.setScene(home);});
 		
 		addFundsButton = new Button("Add More Funds");
