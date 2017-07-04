@@ -7,7 +7,7 @@
 The intent of this project is to create a realistic representation of a working vending machine. In its current state, the program can be run using the Welcome class. The Welcome class contains all the programs graphics functionality. The program allows a user to select a category (Drink, Chips, Candy, or Gum). After selecting a category, a list of available products in that category is displayed. When the user clicks a product, the product is added to their cart. The user can repeat this process as many times as they wish. When the user has finished selecting products, the done button can be clicked from the category selection screen. Clicking the done button opens a receipt screen that displays the name of each product selected, that items price, the total price of all items selected and the amount of change due to the customer. Closing the receipt screen empties the cart and returns the user to the category selection screen. Each time this cycle is completed, the inventory of each product is updated and accessible from the input funds screen. 
 If a customer wishes to cancel their order, a receipt screen opens showing that the amount deposited by the customer is returned as change. 
 
-####Additional functionality added:
+#### Additional functionality added:
 
 Ability to view your cart from any main screen.
 Animation showing your product falling into your cart when an item is selected.
