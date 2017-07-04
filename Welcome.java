@@ -49,6 +49,11 @@ public class Welcome extends Application {
 	Button tenDollarButton;
 	Button twentyDollarButton;
 	Button addFundsButton;
+	Button cartHomeButton;
+	Button cartDrinksButton;
+	Button cartCandyButton;
+	Button cartChipsButton;
+	Button cartGumButton;
 	GridPane homeLayout;
 	Stage window;
 	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney;
@@ -98,6 +103,8 @@ public class Welcome extends Application {
 		
 		Label insufficientFunds = new Label("Not enough credit, please add more money!");
 		GridPane.setConstraints(insufficientFunds, 1, 0);
+		
+		
 
 		//Displays all available drinks in new scene
 		drinksButton = new Button("DRINKS");
@@ -120,20 +127,21 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.cocaColaStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.cocaColaStock.get(0).getPrice()){
-			dispenser.dispense(12, Dispenser.cocaColaStock);
-			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
-			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
-			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
-			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
-			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
-			
+				Animation.animateStart(cocaColaView);
+				dispenser.dispense(12, Dispenser.cocaColaStock);
+				homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+				drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+				chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+				candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+				gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			}
 			else if(Dispenser.cocaColaStock.size() < 1)
 				ReceiptBox.display(outOfStockText);
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);
+			
+			
 			});
 			
 		//same functionality as cocaColaButton
@@ -150,12 +158,14 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.spriteStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.spriteStock.get(0).getPrice()){
+				Animation.animateStart(spriteView);
 			dispenser.dispense(13, Dispenser.spriteStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			candyCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			gumCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
+			
 			}
 			
 			else if(Dispenser.spriteStock.size() < 1)
@@ -163,7 +173,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		minuteMaidButton = new Button("$2.00");
@@ -179,6 +189,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.minuteMaidStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.minuteMaidStock.get(0).getPrice()){
+				Animation.animateStart(minuteMaidView);
 			dispenser.dispense(14, Dispenser.minuteMaidStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -192,7 +203,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		dasaniButton = new Button ("$1.00");
@@ -208,6 +219,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.dasaniStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.dasaniStock.get(0).getPrice()){
+				Animation.animateStart(dasaniView);
 			dispenser.dispense(15, Dispenser.dasaniStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -221,7 +233,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//Displays all available chips in new scene
 		chipsButton = new Button("CHIPS");
@@ -243,6 +255,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.doritosStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.doritosStock.get(0).getPrice()){
+				Animation.animateStart(doritosView);
 			dispenser.dispense(2, Dispenser.doritosStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -256,7 +269,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		laysButton = new Button("$1.00");
@@ -272,6 +285,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.laysStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.laysStock.get(0).getPrice()){
+				Animation.animateStart(laysView);
 			dispenser.dispense(0, Dispenser.laysStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -285,7 +299,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		sunChipsButton = new Button("$1.00");
@@ -301,6 +315,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.sunChipsStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.sunChipsStock.get(0).getPrice()){
+				Animation.animateStart(sunChipsView);
 			dispenser.dispense(1, Dispenser.sunChipsStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -314,7 +329,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		missVickiesButton = new Button("$1.00");
@@ -330,6 +345,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.missVickiesStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.missVickiesStock.get(0).getPrice()){
+				Animation.animateStart(missVickiesView);
 			dispenser.dispense(3, Dispenser.missVickiesStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -343,7 +359,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 	
 		//Displays all available candy in new scene
 		candyButton = new Button("CANDY");
@@ -365,6 +381,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.starburstStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.starburstStock.get(0).getPrice()){
+				Animation.animateStart(starburstView);
 			dispenser.dispense(6, Dispenser.starburstStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -378,7 +395,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		skittlesButton = new Button("$1.50");
@@ -394,6 +411,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.skittlesStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.skittlesStock.get(0).getPrice()){
+				Animation.animateStart(skittlesView);
 			dispenser.dispense(4, Dispenser.skittlesStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -407,7 +425,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		snickersButton = new Button("$1.50");
@@ -423,6 +441,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.snickersStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.snickersStock.get(0).getPrice()){
+				Animation.animateStart(snickersView);
 			dispenser.dispense(5, Dispenser.snickersStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -436,7 +455,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		mandMButton = new Button("$1.50");
@@ -452,6 +471,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.mandMStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.mandMStock.get(0).getPrice()){
+				Animation.animateStart(mandMView);
 			dispenser.dispense(7, Dispenser.mandMStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -465,7 +485,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//Displays all available gum in new scene
 		gumButton = new Button("GUM");
@@ -487,6 +507,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.tridentStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.tridentStock.get(0).getPrice()){
+				Animation.animateStart(tridentView);
 			dispenser.dispense(9, Dispenser.tridentStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -500,7 +521,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		extraButton = new Button("$1.00");
@@ -516,6 +537,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.extraStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.extraStock.get(0).getPrice()){
+				Animation.animateStart(extraView);
 			dispenser.dispense(10, Dispenser.extraStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -529,7 +551,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		wrigleysButton = new Button("$1.00");
@@ -545,6 +567,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.wrigleysStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.wrigleysStock.get(0).getPrice()){
+				Animation.animateStart(wrigleysView);
 			dispenser.dispense(11, Dispenser.wrigleysStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -558,7 +581,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 		
 		//same functionality as cocaColaButton
 		bigRedButton = new Button("$1.00");
@@ -574,6 +597,7 @@ public class Welcome extends Application {
 			GridPane.setConstraints(outOfStockText, 1, 1);
 			outOfStockText.setText("out of stock");
 			if(Dispenser.bigRedStock.size() > 0 && Dispenser.myBank.getCreditAvailable() >= Dispenser.bigRedStock.get(0).getPrice()){
+				Animation.animateStart(bigRedView);
 			dispenser.dispense(8, Dispenser.bigRedStock);
 			homeCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + Dispenser.myBank.getCreditAvailable() + "0");
@@ -587,7 +611,7 @@ public class Welcome extends Application {
 			else
 				ReceiptBox.display(insufficientFunds);
 			
-			window.setScene(home);});
+			});
 			
 		//Takes the user back to the home screen.
 		drinksBackButton = new Button("BACK TO HOME");
@@ -671,7 +695,7 @@ public class Welcome extends Application {
 					+ "Minute Maid" + ": " + Dispenser.minuteMaidStock.size() + "\n"
 					+ "Dasani" + ": " + Dispenser.dasaniStock.size() + "\n");
 			ReceiptBox.display(inventoryText);
-			window.setScene(home);});
+			});
 		
 		
 		
@@ -926,7 +950,77 @@ public class Welcome extends Application {
 		GridPane.setConstraints(addFundsButton, 2, 1);
 		addFundsButton.setMinSize(250.0, 50.0);
 		addFundsButton.setOnAction(e -> window.setScene(addMoney));
-
+		
+		Label currentCartText = new Label();
+		GridPane.setConstraints(currentCartText, 1, 0);
+		
+		
+		cartHomeButton = new Button();
+		Image cartImageHome = new Image(getClass().getResourceAsStream("cart.png"));
+		ImageView cartViewHome = new ImageView(cartImageHome);
+		cartViewHome.setFitHeight(200);
+		cartViewHome.setFitWidth(150);
+		cartHomeButton.setGraphic(cartViewHome);
+		cartHomeButton.setMinSize(500.0, 50.0);
+		GridPane.setConstraints(cartHomeButton, 1, 6, 2, 2);
+		cartHomeButton.setOnAction(e -> {
+			currentCartText.setText("Your Cart\n\n" + Dispenser.cart.toString() + "\n\n" + "Current Total: $" + dispenser.total + "0");
+			ReceiptBox.display(currentCartText);
+		});
+		
+		cartDrinksButton = new Button();
+		Image cartImageDrinks = new Image(getClass().getResourceAsStream("cart.png"));
+		ImageView cartViewDrinks = new ImageView(cartImageDrinks);
+		cartViewDrinks.setFitHeight(200);
+		cartViewDrinks.setFitWidth(150);
+		cartDrinksButton.setGraphic(cartViewDrinks);
+		cartDrinksButton.setMinSize(500.0, 50.0);
+		GridPane.setConstraints(cartDrinksButton, 1, 3, 2, 2);
+		cartDrinksButton.setOnAction(e -> {
+			currentCartText.setText("Your Cart\n\n" + Dispenser.cart.toString() + "\n\n" + "Current Total: $" + dispenser.total + "0");
+			ReceiptBox.display(currentCartText);
+		});
+		
+		cartCandyButton = new Button();
+		Image cartImageCandy = new Image(getClass().getResourceAsStream("cart.png"));
+		ImageView cartViewCandy = new ImageView(cartImageCandy);
+		cartViewCandy.setFitHeight(200);
+		cartViewCandy.setFitWidth(150);
+		cartCandyButton.setGraphic(cartViewCandy);
+		cartCandyButton.setMinSize(500.0, 50.0);
+		GridPane.setConstraints(cartCandyButton, 1, 3, 2, 2);
+		cartCandyButton.setOnAction(e -> {
+			currentCartText.setText("Your Cart\n\n" + Dispenser.cart.toString() + "\n\n" + "Current Total: $" + dispenser.total + "0");
+			ReceiptBox.display(currentCartText);
+		});
+		
+		cartChipsButton = new Button();
+		Image cartImageChips = new Image(getClass().getResourceAsStream("cart.png"));
+		ImageView cartViewChips = new ImageView(cartImageChips);
+		cartViewChips.setFitHeight(200);
+		cartViewChips.setFitWidth(150);
+		cartChipsButton.setGraphic(cartViewChips);
+		cartChipsButton.setMinSize(500.0, 50.0);
+		GridPane.setConstraints(cartChipsButton, 1, 3, 2, 2);
+		cartChipsButton.setOnAction(e -> {
+			currentCartText.setText("Your Cart\n\n" + Dispenser.cart.toString() + "\n\n" + "Current Total: $" + dispenser.total + "0");
+			ReceiptBox.display(currentCartText);
+		});
+		
+		cartGumButton = new Button();
+		Image cartImageGum = new Image(getClass().getResourceAsStream("cart.png"));
+		ImageView cartViewGum = new ImageView(cartImageGum);
+		cartViewGum.setFitHeight(200);
+		cartViewGum.setFitWidth(150);
+		cartGumButton.setGraphic(cartViewGum);
+		cartGumButton.setMinSize(500.0, 50.0);
+		GridPane.setConstraints(cartGumButton, 1, 3, 2, 2);
+		cartGumButton.setOnAction(e -> {
+			currentCartText.setText("Your Cart\n\n" + Dispenser.cart.toString() + "\n\n" + "Current Total: $" + dispenser.total + "0");
+			ReceiptBox.display(currentCartText);
+		});
+		
+	
 		Label creditText = new Label();
 		GridPane.setConstraints(creditText, 1, 0);
 		
@@ -942,7 +1036,7 @@ public class Welcome extends Application {
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
-		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton, cancelButton, inventoryButton, homeCreditText, 
+		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton, cancelButton, homeCreditText, cartHomeButton, 
 				addFundsButton);
 		
 		//Sets the layout for the drinks screen.
@@ -950,28 +1044,28 @@ public class Welcome extends Application {
 		drinksLayout.setPadding(new Insets(10, 10, 10, 10));
 		drinksLayout.setVgap(10);
 		drinksLayout.setHgap(8);
-		drinksLayout.getChildren().addAll(cocaColaButton, spriteButton, minuteMaidButton, dasaniButton, drinksBackButton, drinkCreditText);
+		drinksLayout.getChildren().addAll(dasaniButton, spriteButton, cocaColaButton,  minuteMaidButton, drinksBackButton, drinkCreditText, cartDrinksButton);
 		
 		//Sets the layout for the chips screen.
 		GridPane chipsLayout = new GridPane();
 		chipsLayout.setPadding(new Insets(10, 10, 10, 10));
 		chipsLayout.setVgap(10);
 		chipsLayout.setHgap(8);
-		chipsLayout.getChildren().addAll(doritosButton, laysButton, sunChipsButton, missVickiesButton, chipsBackButton, chipsCreditText);
+		chipsLayout.getChildren().addAll(laysButton, missVickiesButton, doritosButton, sunChipsButton, chipsBackButton, chipsCreditText, cartChipsButton);
 		
 		//Sets the layout for the candy screen.
 		GridPane candyLayout = new GridPane();
 		candyLayout.setPadding(new Insets(10, 10, 10, 10));
 		candyLayout.setVgap(10);
 		candyLayout.setHgap(8);
-		candyLayout.getChildren().addAll(starburstButton, skittlesButton, snickersButton, mandMButton, candyBackButton, candyCreditText);
+		candyLayout.getChildren().addAll(skittlesButton, mandMButton, candyBackButton, snickersButton, starburstButton, candyCreditText, cartCandyButton);
 		
 		//Sets the layout for the gum screen.
 		GridPane gumLayout = new GridPane();
 		gumLayout.setPadding(new Insets(10, 10, 10, 10));
 		gumLayout.setVgap(10);
 		gumLayout.setHgap(8);
-		gumLayout.getChildren().addAll(tridentButton, extraButton, wrigleysButton, bigRedButton, gumBackButton, gumCreditText);
+		gumLayout.getChildren().addAll( extraButton, bigRedButton, gumBackButton, wrigleysButton, tridentButton, gumCreditText, cartGumButton);
 		
 		GridPane inventoryLayout = new GridPane();
 		inventoryLayout.setPadding(new Insets(10, 10, 10, 10));
@@ -983,16 +1077,16 @@ public class Welcome extends Application {
 		insertMoney.setPadding(new Insets(10, 10, 10, 10));
 		insertMoney.setVgap(10);
 		insertMoney.setHgap(8);
-		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel);
+		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel, inventoryButton);
 		
 		//Different screens in this application. Sets layout to each scene and defines the screen size.
-		home = new Scene(homeLayout, 545, 500);
-		drinks = new Scene(drinksLayout, 545, 500);
-		chips = new Scene(chipsLayout, 545, 500);
-		candy = new Scene(candyLayout, 545, 500);
-		gum = new Scene(gumLayout, 545, 500);
-		inventory = new Scene(inventoryLayout, 545, 500);
-		addMoney = new Scene(insertMoney, 545, 500);
+		home = new Scene(homeLayout, 545, 740);
+		drinks = new Scene(drinksLayout, 545, 740);
+		chips = new Scene(chipsLayout, 545, 740);
+		candy = new Scene(candyLayout, 545, 740);
+		gum = new Scene(gumLayout, 545, 740);
+		inventory = new Scene(inventoryLayout, 545, 740);
+		addMoney = new Scene(insertMoney, 545, 740);
 		
 		//Sets the home screen to display on start.
 		primaryStage.setScene(addMoney);
