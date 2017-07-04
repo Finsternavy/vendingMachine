@@ -18,7 +18,7 @@ public class Animation {
 		toCart.setCycleCount(1);
 		toCart.setAutoReverse(false);
 		toCart.setToX(0);
-		toCart.setToY(440);
+		toCart.setToY(275);
 		toCart.setNode(imageView);
 
 

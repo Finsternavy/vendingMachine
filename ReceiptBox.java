@@ -1,5 +1,6 @@
 package vendingMachineGUIBoss;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,12 +22,14 @@ public class ReceiptBox{
 		Label receiptLable = new Label();
 		receiptLable.setText(label.getText());
 		
+		
 		Button closeButton = new Button("CLOSE WINDOW");
 		closeButton.setOnAction(e -> window.close());
 		
 		VBox layout = new VBox(10);
 		layout.getChildren().addAll(label, closeButton);
 		layout.setAlignment(Pos.CENTER);
+		layout.setPadding(new Insets(10, 10, 10, 10));
 		
 		Scene scene = new Scene(layout);
 		window.setScene(scene);
