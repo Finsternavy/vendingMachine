@@ -4,11 +4,15 @@
 ###### Project begin date: 29MAY2017.
 ###### This project is for CST-135 Computer Programming II, Grand Canyon University.
  
-The intent of this project is to create a realistic representation of a working vending machine. In its current state, the program can be run using the Welcome class. The Welcome class contains all of the programs graphics functionality. The program allows a user to select a category (Drink, Chips, Candy, or Gum). After selecting a category a list of availble products in that category is displayed. When the user clicks that product, the product is added to their cart and they are returned to the category selection screen. The user can repeat this process as many times as they wish. When the user has finished selecting products, the done button can be clicked from the category selection screen. Clicking the done button opens a receipt screen that displays the name of each product selected, that items price, and the total price of all items selected. Closing the receipt screen empties the cart and returns the user to the category selection screen.  
+The intent of this project is to create a realistic representation of a working vending machine. In its current state, the program can be run using the Welcome class. The Welcome class contains all the programs graphics functionality. The program allows a user to select a category (Drink, Chips, Candy, or Gum). After selecting a category, a list of available products in that category is displayed. When the user clicks a product, the product is added to their cart. The user can repeat this process as many times as they wish. When the user has finished selecting products, the done button can be clicked from the category selection screen. Clicking the done button opens a receipt screen that displays the name of each product selected, that items price, the total price of all items selected and the amount of change due to the customer. Closing the receipt screen empties the cart and returns the user to the category selection screen. Each time this cycle is completed, the inventory of each product is updated and accessible from the input funds screen. 
+If a customer wishes to cancel their order, a receipt screen opens showing that the amount deposited by the customer is returned as change. 
 
-The next step in the process is to add an inventory manager class and screen to allow a servicer to manage inventory.
-We will also implement a simple animation that will run when an item is selected.
-We also plan to implement customer cash input functionality and make change functionality.
+####Additional functionality added:
+
+Ability to view your cart from any main screen.
+Animation showing your product falling into your cart when an item is selected.
+Ability to add more funds if needed.
+Pop-up windows display when the customer has insufficient  funds or a product is out of stock.
  
 #### Proposed customer flow:
 
@@ -18,7 +22,7 @@ Insert money > select category > select item > dispense / cancel / add funds / a
 
 Admin login > passcode entry > select area of interest (inventory / financials / passcode change) > item selection / account control / enter new pin > item adjustments > adjustment confirmation > return to main.
 
-### Before installing Vending Machine you may need:
+### Before installing Vending Machine, you may need:
 
 -A [GitHub account](https://github.com/)
 
