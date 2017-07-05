@@ -11,14 +11,13 @@ public class Candy extends Snack{
 	public Candy(String name, double price){
 		this.name = name;
 		this.price = price;
-		
 	}
 
-	public Candy(String name, double price, String location){
+	public Candy(String name, double price, int currentStock, int maxStock, boolean isSour){
 		super();
 		this.name = name;
 		this.price = price;
-		this.location = location;
+		this.isSour = isSour;
 	}
 	
 	public Candy(Candy candy){

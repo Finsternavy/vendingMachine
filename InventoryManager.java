@@ -15,130 +15,76 @@ public class InventoryManager {
 		}
 	}
 	
-	public void addOneToInventory(CHOICE choice, Dispenser dispenser){
+	public void addOneToInventory(CHOICE choice){
 		switch (choice){
 			case LAYS:
-				Chips lays = new Chips(dispenser.products.get(0).getName(), dispenser.products.get(0).getPrice());
-				dispenser.laysStock.add(lays);
+				Chips lays = new Chips(Dispenser.products.get(0).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.laysStock.add(lays);
 				break;
 			case SUNCHIPS:
-				Chips sunChips = new Chips(dispenser.products.get(1).getName(), dispenser.products.get(1).getPrice());
-				dispenser.sunChipsStock.add(sunChips);
+				Chips sunChips = new Chips(Dispenser.products.get(1).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.sunChipsStock.add(sunChips);
 				break;
 			case DORITOS:
-				Chips doritos = new Chips(dispenser.products.get(2).getName(), dispenser.products.get(2).getPrice());
-				dispenser.doritosStock.add(doritos);
+				Chips doritos = new Chips(Dispenser.products.get(2).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.doritosStock.add(doritos);
 				break;
 			case MISSVICKIES:
-				Chips missVickies = new Chips(dispenser.products.get(3).getName(), dispenser.products.get(3).getPrice());
-				dispenser.missVickiesStock.add(missVickies);
+				Chips missVickies = new Chips(Dispenser.products.get(3).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.missVickiesStock.add(missVickies);
 				break;
 			case SKITTLES:
-				Candy skittles = new Candy(dispenser.products.get(4).getName(), dispenser.products.get(4).getPrice());
-				dispenser.skittlesStock.add(skittles);
+				Candy skittles = new Candy(Dispenser.products.get(4).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.skittlesStock.add(skittles);
 				break;
 			case SNICKERS:
-				Candy snickers = new Candy(dispenser.products.get(5).getName(), dispenser.products.get(5).getPrice());
-				dispenser.snickersStock.add(snickers);
+				Candy snickers = new Candy(Dispenser.products.get(5).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.snickersStock.add(snickers);
 				break;
 			case STARBURST:
-				Candy starburst = new Candy(dispenser.products.get(6).getName(), dispenser.products.get(6).getPrice());
-				dispenser.starburstStock.add(starburst);
+				Candy starburst = new Candy(Dispenser.products.get(6).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.starburstStock.add(starburst);
 				break;
 			case MANDM:
-				Candy mandM = new Candy(dispenser.products.get(7).getName(), dispenser.products.get(7).getPrice());
-				dispenser.mandMStock.add(mandM);
+				Candy mandM = new Candy(Dispenser.products.get(7).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.mandMStock.add(mandM);
 				break;
 			case BIGRED:
-				Gum bigRed = new Gum(dispenser.products.get(8).getName(), dispenser.products.get(8).getPrice());
-				dispenser.bigRedStock.add(bigRed);
+				Gum bigRed = new Gum(Dispenser.products.get(8).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.bigRedStock.add(bigRed);
 				break;
 			case TRIDENT:
-				Gum trident = new Gum(dispenser.products.get(9).getName(), dispenser.products.get(9).getPrice());
-				dispenser.tridentStock.add(trident);
+				Gum trident = new Gum(Dispenser.products.get(9).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.tridentStock.add(trident);
 				break;
 			case EXTRA:
-				Gum extra = new Gum(dispenser.products.get(10).getName(), dispenser.products.get(10).getPrice());
-				dispenser.extraStock.add(extra);
+				Gum extra = new Gum(Dispenser.products.get(10).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.extraStock.add(extra);
 				break;
 			case WRIGLEYS:
-				Gum wrigleys = new Gum(dispenser.products.get(11).getName(), dispenser.products.get(11).getPrice());
-				dispenser.wrigleysStock.add(wrigleys);
+				Gum wrigleys = new Gum(Dispenser.products.get(11).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.wrigleysStock.add(wrigleys);
 				break;
 			case COCACOLA:
-				Drink cocaCola = new Drink(dispenser.products.get(12).getName(), dispenser.products.get(12).getPrice());
-				dispenser.cocaColaStock.add(cocaCola);
+				Drink cocaCola = new Drink(Dispenser.products.get(12).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.cocaColaStock.add(cocaCola);
 				break;
 			case SPRITE:
-				Drink sprite = new Drink(dispenser.products.get(13).getName(), dispenser.products.get(13).getPrice());
-				dispenser.spriteStock.add(sprite);
+				Drink sprite = new Drink(Dispenser.products.get(13).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.spriteStock.add(sprite);
 				break;
 			case MINUTEMAID:
-				Drink minuteMaid = new Drink(dispenser.products.get(14).getName(), dispenser.products.get(14).getPrice());
-				dispenser.minuteMaidStock.add(minuteMaid);
+				Drink minuteMaid = new Drink(Dispenser.products.get(14).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.minuteMaidStock.add(minuteMaid);
 				break;
 			case DASANI:
-				Drink dasani = new Drink(dispenser.products.get(15).getName(), dispenser.products.get(15).getPrice());
-				dispenser.dasaniStock.add(dasani);
+				Drink dasani = new Drink(Dispenser.products.get(15).getName(), Dispenser.products.get(12).getPrice());
+				Dispenser.dasaniStock.add(dasani);
 				break;
 		}
 	}
 	
-	public void restock(ArrayList<Product> arrayList, Dispenser dispenser){
-		int productsToAdd = dispenser.slotMax - arrayList.size();
-		for(int i = 0; i < productsToAdd; i++){
-			String name = arrayList.get(0).getName();
-			switch (name){
-			case "Lays":
-				this.addOneToInventory(CHOICE.LAYS, dispenser);
-				break;
-			case "Doritos":
-				this.addOneToInventory(CHOICE.DORITOS, dispenser);
-				break;
-			case "Sun Chips":
-				this.addOneToInventory(CHOICE.SUNCHIPS, dispenser);
-				break;
-			case "Miss Vickie's":
-				this.addOneToInventory(CHOICE.MISSVICKIES, dispenser);
-				break;
-			case "Snickers":
-				this.addOneToInventory(CHOICE.SNICKERS, dispenser);
-				break;
-			case "Skittles":
-				this.addOneToInventory(CHOICE.SKITTLES, dispenser);
-				break;
-			case "M&M's":
-				this.addOneToInventory(CHOICE.MANDM, dispenser);
-				break;
-			case "Starburst":
-				this.addOneToInventory(CHOICE.STARBURST, dispenser);
-				break;
-			case "Trident":
-				this.addOneToInventory(CHOICE.TRIDENT, dispenser);
-				break;
-			case "Extra":
-				this.addOneToInventory(CHOICE.EXTRA, dispenser);
-				break;
-			case "Big Red":
-				this.addOneToInventory(CHOICE.BIGRED, dispenser);
-				break;
-			case "Wrigley's":
-				this.addOneToInventory(CHOICE.WRIGLEYS, dispenser);
-				break;
-			case "Coca-Cola":
-				this.addOneToInventory(CHOICE.COCACOLA, dispenser);
-				break;
-			case "Sprite":
-				this.addOneToInventory(CHOICE.SPRITE, dispenser);
-				break;
-			case "Dasani":
-				this.addOneToInventory(CHOICE.DASANI, dispenser);
-				break;
-			case "Minute Maid":
-				this.addOneToInventory(CHOICE.MINUTEMAID, dispenser);
-				break;
-				
-			}
-		}
+	public void restock(CHOICE choice){
+		
 	}
 }

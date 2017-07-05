@@ -11,13 +11,12 @@ public class Gum extends Snack{
 	public Gum(String name, double price){
 		this.name = name;
 		this.price = price;
-		
 	}
 	
-	public Gum(String name, double price, String location){
+	public Gum(String name, double price, int currentStock, int maxStock, int sticksInPackage){
 		this.name = name;
 		this.price = price;
-		this.location = location;
+		this.sticksInPackage = sticksInPackage;
 	}
 	
 

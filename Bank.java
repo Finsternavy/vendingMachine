@@ -1,12 +1,12 @@
 package vendingMachine;
 
-public class TransactionProcessing {
+public class Bank {
 	double income; 
 	double change; 
 	double changeAvailable; 
 	double creditAvailable; 
 	  
-	  public TransactionProcessing(double income, double change, double changeAvailable, double creditAvailable){
+	  public Bank(double income, double change, double changeAvailable, double creditAvailable){
 	    this.income = income;
 	    this.change = change;
 	    this.changeAvailable = changeAvailable;

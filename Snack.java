@@ -6,23 +6,16 @@ public abstract class Snack extends Product implements Comparable<Product>{
         super();
     }
     
-    public Snack(String name, double price){
-    	super();
-    	this.name = name;
-    	this.price = price;
-    }
-    
-    public Snack (String name, double price, String location) {
+    public Snack (String name, double price, int quantity, int maxQuantity) {
     	super ();
     	this.name = name;
     	this.price = price;
-    	this.location = location;
 
     }
     
 	@Override
 	public String toString(){
-		return name + " Price: $" + price + " Location: " + location;
+		return "\n" + name + ":\nPrice: " + price;
 	}
     
 	@Override
