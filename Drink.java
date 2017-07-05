@@ -5,11 +5,18 @@ public class Drink extends Product implements Comparable<Product>{
 	   
 	  public Drink(){ 
 	  } 
+	  
+	  public Drink(String name, double price){
+		  super();
+		  this.name = name;
+		  this.price = price;
+	  }
 	   
-	  public Drink(String name, double price){ 
+	  public Drink(String name, double price, String location){ 
 	   super(); 
 	    this.name = name; 
 	    this.price = price; 
+	    this.location = location;
 	  }
 	  
 	  
