@@ -11,13 +11,14 @@ public class Chips extends Snack{
 	public Chips(String name, double price){
 		this.name = name;
 		this.price = price;
+		
 	}
 
-	public Chips(String name, double price, int currentStock, int maxStock, int servingSize){
+	public Chips(String name, double price, String location){
 		super();
 		this.name = name;
 		this.price = price;
-		this.servingSize = servingSize;
+		this.location = location;
 	}
 	
 	public Chips(Chips chips){
@@ -40,9 +41,10 @@ public class Chips extends Snack{
 	}
 	
 	
+	
 	@Override
 	public String toString() {
-		return "\n" + name + ":\nPrice: $" + price + "0";
+		return "\n" + name + " Price: $" + price;
 	}
 
 	
