@@ -4,7 +4,7 @@
 ###### Project begin date: 29MAY2017.
 ###### This project is for CST-135 Computer Programming II, Grand Canyon University.
  
-The intent of this project is to create a realistic representation of a working vending machine. In its current state, the program can be run using the Welcome class. The Welcome class contains all the programs graphics functionality. The program allows a user to select a category (Drink, Chips, Candy, or Gum). After selecting a category, a list of available products in that category is displayed. When the user clicks a product, the product is added to their cart. The user can repeat this process as many times as they wish. When the user has finished selecting products, the done button can be clicked from the category selection screen. Clicking the done button opens a receipt screen that displays the name of each product selected, that items price, the total price of all items selected and the amount of change due to the customer. Closing the receipt screen empties the cart and returns the user to the category selection screen. Each time this cycle is completed, the inventory of each product is updated and accessible from the input funds screen. 
+The intent of this project is to create a realistic representation of a working vending machine. In its current state, the program can be run using the Welcome class. The Welcome class contains all the programs graphics functionality. The program can also be run by downloading vendingMachineV1.0.exe. The program allows a user to select a category (Drink, Chips, Candy, or Gum). After selecting a category, a list of available products in that category is displayed. When the user clicks a product, the product is added to their cart. The user can repeat this process as many times as they wish. When the user has finished selecting products, the done button can be clicked from the category selection screen. Clicking the done button opens a receipt screen that displays the name of each product selected, that items price, the total price of all items selected and the amount of change due to the customer. Closing the receipt screen empties the cart and returns the user to the category selection screen. Each time this cycle is completed, the inventory of each product is updated and accessible from the input funds screen. 
 If a customer wishes to cancel their order, a receipt screen opens showing that the amount deposited by the customer is returned as change. 
 
 #### Additional functionality added:
@@ -16,7 +16,7 @@ Pop-up windows display when the customer has insufficient  funds or a product is
  
 #### Proposed customer flow:
 
-Insert money > select category > select item > dispense / cancel / add funds / add more items > repeat as necessary. 
+Insert money > select category > select item > return to home / cancel / add funds > repeat as necessary > click done to finish. 
 
 #### Proposed servicer(Boss) flow:
 
@@ -30,7 +30,7 @@ Admin login > passcode entry > select area of interest (inventory / financials /
 
 -[SourceTree](https://www.sourcetreeapp.com/)
 
-### Download instructions:
+### Whole Project Download instructions:
 
 1. Open SourceTree
 2. Click <FILE> <NEW/CLONE>
@@ -46,3 +46,11 @@ Admin login > passcode entry > select area of interest (inventory / financials /
 5. Click file > Open Project > Select the file location you chose when downloading
 6. Select the Welcome Class
 7. Right click > select Run as Application
+
+### Vending Machine Download (Application only) instructions:
+
+1. Select the file titled "VendingMachineV1.0.exe
+2. Click "Download" on the right side of the screen
+3. A message will display stating that windows has blocked installation. Click "details" in the message body.
+4. Click "Download anyway"
+5. When the download has finished, double click the file from the location you saved it to. The program will open.
