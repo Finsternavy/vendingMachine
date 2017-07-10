@@ -1,17 +1,17 @@
-Product Type,Name,Description ,Price
-Chips ,Doritos,Cool Ranch, $1.00 
-Chips ,Miss Vickie's,Jalapeno, $1.00 
-Chips ,Lays,Original, $1.00 
-Chips ,Sun Chips,Harvest Cheddar, $1.00 
-Drinks,Coca-Cola,Soda, $1.50 
-Drinks,Sprite,Soda, $1.50 
-Drinks,Minute Maid,Orange Juice, $2.00 
-Drinks,Dasani,Water, $1.00 
-Candy,Starburst,Squared fruity snacks, $1.50 
-Candy,Skittles,Round fruity snacks, $1.50 
-Candy,Snickers,"Chocolate, Caramel, and Peanuts", $1.50 
-Candy,M&M's,Minuature chocolates, $1.50 
-Gum,Trident,10 piece gum, $1.00 
-Gum,Extra,Spearmint (5 per pack), $1.00 
-Gum,Wrigley's,Doublemint (5 per pack), $1.00 
-Gum,Big Red,Cinamon Spice (5 per pack), $1.00 
+Class,Name,Price,Quantity,Location
+Chips,Doritos,1,15,Vend-O-Matic 5000
+Chips,Miss Vickie's,1,15,Vend-O-Matic 5000
+Chips,Lays,1,15,Vend-O-Matic 5000
+Chips,Sun Chips,1,15,Vend-O-Matic 5000
+Drink,Coca-Cola,1.5,15,Vend-O-Matic 5000
+Drink,Sprite,1.5,15,Vend-O-Matic 5000
+Drink,Minute Maid,2,15,Vend-O-Matic 5000
+Drink,Dasani,1,15,Vend-O-Matic 5000
+Candy,Starburst,1.5,15,Vend-O-Matic 5000
+Candy,Skittles,1.5,15,Vend-O-Matic 5000
+Candy,Snickers,1.5,15,Vend-O-Matic 5000
+Candy,M&M's,1.5,15,Vend-O-Matic 5000
+Gum,Trident,1,15,Vend-O-Matic 5000
+Gum,Extra,1,15,Vend-O-Matic 5000
+Gum,Wrigley's,1,15,Vend-O-Matic 5000
+Gum,Big Red,1,15,Vend-O-Matic 5000

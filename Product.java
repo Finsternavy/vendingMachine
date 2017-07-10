@@ -1,9 +1,12 @@
 package vendingMachine;
 
-public class Product implements Comparable<Product>{
+import java.util.ArrayList;
+
+public abstract class Product implements Comparable<Product>{
 	
 	  String name = "New Product"; 
 	  double price = 1.00; 
+	  int quantity = 1;
 	  String location = "";
 	   
 	  public Product(){ 
@@ -40,6 +43,14 @@ public class Product implements Comparable<Product>{
 	    public String getLocation(){
 	    	return location;
 	    }
+	    
+	    public void setQuantity(int quantity){
+	    	this.quantity = quantity;
+	    }
+	    
+	    public int getQuantity(){
+	    	return quantity;
+	    }
 	                  
 	    
 	    @Override
@@ -61,5 +72,4 @@ public class Product implements Comparable<Product>{
 				return 0;
 			}
 		}
-	
 }

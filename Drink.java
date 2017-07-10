@@ -12,10 +12,11 @@ public class Drink extends Product implements Comparable<Product>{
 		  this.price = price;
 	  }
 	   
-	  public Drink(String name, double price, String location){ 
+	  public Drink(String name, double price, int quantity, String location){ 
 	   super(); 
 	    this.name = name; 
 	    this.price = price; 
+	    this.quantity = quantity;
 	    this.location = location;
 	  }
 	  

@@ -12,10 +12,11 @@ public abstract class Snack extends Product implements Comparable<Product>{
     	this.price = price;
     }
     
-    public Snack (String name, double price, String location) {
+    public Snack (String name, double price, int quantity, String location) {
     	super ();
     	this.name = name;
     	this.price = price;
+    	this.quantity = quantity;
     	this.location = location;
 
     }

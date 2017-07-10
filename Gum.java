@@ -14,9 +14,10 @@ public class Gum extends Snack{
 		
 	}
 	
-	public Gum(String name, double price, String location){
+	public Gum(String name, double price, int quantity, String location){
 		this.name = name;
 		this.price = price;
+		this.quantity = quantity;
 		this.location = location;
 	}
 	

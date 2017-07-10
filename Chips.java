@@ -14,10 +14,11 @@ public class Chips extends Snack{
 		
 	}
 
-	public Chips(String name, double price, String location){
+	public Chips(String name, double price, int quantity, String location){
 		super();
 		this.name = name;
 		this.price = price;
+		this.quantity = quantity;
 		this.location = location;
 	}
 	
@@ -44,7 +45,7 @@ public class Chips extends Snack{
 	
 	@Override
 	public String toString() {
-		return "\n" + name + " Price: $" + price;
+		return "\n" + name + "\nPrice: $" + price + "0";
 	}
 
 	

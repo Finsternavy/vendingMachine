@@ -14,10 +14,11 @@ public class Candy extends Snack{
 		
 	}
 
-	public Candy(String name, double price, String location){
+	public Candy(String name, double price, int quantity, String location){
 		super();
 		this.name = name;
 		this.price = price;
+		this.quantity = quantity;
 		this.location = location;
 	}
 	

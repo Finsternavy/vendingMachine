@@ -19,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import vendingMachineGUIBoss.Animation;
 import vendingMachineGUIBoss.ReceiptBox;
+import java.lang.Object;
 
 
 /**
@@ -69,9 +70,24 @@ public class Dispenser extends Application{
 	Button cartCandyButton;
 	Button cartChipsButton;
 	Button cartGumButton;
+	Button loginButton;
+	Button loginCancelButton;
+	Button loginOneButton;
+	Button loginTwoButton;
+	Button loginThreeButton;
+	Button loginFourButton;
+	Button loginFiveButton;
+	Button loginSixButton;
+	Button loginSevenButton;
+	Button loginEightButton;
+	Button loginNineButton;
+	Button loginSubmitButton;
+	Button bossHomeBackButton;
+	Button myVendingMachinesButton;
+	Button vendingMachineFromCSVButton;
 	GridPane homeLayout;
 	Stage window;
-	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney;
+	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney, login, bossHome, myVendingMachines;
 
 	public InventoryManager myInventoryManager = new InventoryManager();
 	public ArrayList<Product> products = new ArrayList<>();
@@ -93,6 +109,9 @@ public class Dispenser extends Application{
 	public ArrayList<Product> dasaniStock = new ArrayList<>();
 	public ArrayList<Product> cart = new ArrayList<>();
 	public TransactionProcessing myBank = new TransactionProcessing(0.00, 0.00, 100.00, 0.00);
+	
+	public StringBuilder currentPassword = new StringBuilder("1" + "2" + "3" + "4");
+	public StringBuilder passwordAttempt = new StringBuilder();
 
 	public Dispenser() {
 		this.createVendingMachine();
@@ -144,22 +163,22 @@ public class Dispenser extends Application{
 	public void createVendingMachine() {
 		for(int i = 0; i < slotMax; i++){
 
-		Snack lays = new Chips("Lays", 1.00, this.name);
-		Snack sunChips = new Chips("Sun Chips", 1.00, this.name);
-		Snack doritos = new Chips("Doritos", 1.00, this.name);
-		Snack missVickies = new Chips("Miss Vickie's", 1.00, this.name);
-		Snack skittles = new Candy("Skittles", 1.50, this.name);
-		Snack snickers = new Candy("Snicker", 1.50, this.name);
-		Snack starburst = new Candy("Starburst", 1.50, this.name);
-		Snack mandM = new Gum("M&M's", 1.50, this.name);
-		Snack bigRed = new Gum("Big Red", 1.00, this.name);
-		Snack trident = new Gum("Trident", 1.00, this.name);
-		Snack extra = new Gum("Extra", 1.00, this.name);
-		Snack wrigleys = new Gum("Wrigley's", 1.00, this.name);
-		Drink cocaCola = new Drink("Coca-Cola", 1.50, this.name);
-		Drink sprite = new Drink("Sprite", 1.50, this.name);
-		Drink minuteMain = new Drink("Minute Maid", 2.00, this.name);
-		Drink dasani = new Drink("Dasani", 1.00, this.name);
+		Snack lays = new Chips("Lays", 1.00, 1, this.name);
+		Snack sunChips = new Chips("Sun Chips", 1.00, 1, this.name);
+		Snack doritos = new Chips("Doritos", 1.00, 1, this.name);
+		Snack missVickies = new Chips("Miss Vickie's", 1.00, 1, this.name);
+		Snack skittles = new Candy("Skittles", 1.50, 1, this.name);
+		Snack snickers = new Candy("Snicker", 1.50, 1, this.name);
+		Snack starburst = new Candy("Starburst", 1.50, 1, this.name);
+		Snack mandM = new Gum("M&M's", 1.50, 1, this.name);
+		Snack bigRed = new Gum("Big Red", 1.00, 1, this.name);
+		Snack trident = new Gum("Trident", 1.00, 1, this.name);
+		Snack extra = new Gum("Extra", 1.00, 1, this.name);
+		Snack wrigleys = new Gum("Wrigley's", 1.00, 1, this.name);
+		Drink cocaCola = new Drink("Coca-Cola", 1.50, 1, this.name);
+		Drink sprite = new Drink("Sprite", 1.50, 1, this.name);
+		Drink minuteMain = new Drink("Minute Maid", 2.00, 1, this.name);
+		Drink dasani = new Drink("Dasani", 1.00, 1, this.name);
 		
 		laysStock.add(lays);
 		sunChipsStock.add(sunChips);
@@ -218,6 +237,20 @@ public class Dispenser extends Application{
 		DASANI
 		
 	}
+	
+	public void restoreDefaultPassword(){
+		currentPassword.setLength(0);
+		currentPassword.append("1");
+		currentPassword.append("2");
+		currentPassword.append("3");
+		currentPassword.append("4");
+	}
+	
+	public void resetPasswordAttempt(){
+		passwordAttempt.setLength(0);
+	}
+	
+	
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -285,6 +318,7 @@ public class Dispenser extends Application{
 				chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 				candyCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 				gumCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
+				Restock.checkInventory(dispenser.cocaColaStock, dispenser);
 			}
 			else if(dispenser.cocaColaStock.size() < 1)
 				ReceiptBox.display(outOfStockText);
@@ -831,8 +865,8 @@ public class Dispenser extends Application{
 		Label inventoryText = new Label();
 		GridPane.setConstraints(inventoryText, 1, 1);
 		
-		inventoryButton = new Button("Display Inventory");
-		GridPane.setConstraints(inventoryButton, 2, 0);
+		inventoryButton = new Button("Vend-O-Matic 6000 Inventory");
+		GridPane.setConstraints(inventoryButton, 0, 1);
 		inventoryButton.setMinSize(250.0, 50.0);
 		inventoryButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
 				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
@@ -1056,7 +1090,7 @@ public class Dispenser extends Application{
 		});
 		
 
-		Label addMoneyWelcomeLabel = new Label("Welcome! Please deposit cash.");
+		Label addMoneyWelcomeLabel = new Label("\t\t Welcome!\n \tPlease deposit cash.");
 		GridPane.setConstraints(addMoneyWelcomeLabel, 1, 1, 2, 1);
 		addMoneyWelcomeLabel.setStyle("-fx-font: 35 arial;");
 		
@@ -1125,6 +1159,13 @@ public class Dispenser extends Application{
 		
 		Label currentCartText = new Label();
 		GridPane.setConstraints(currentCartText, 1, 0);
+		
+		loginButton = new Button("Admin Login");
+		loginButton.setMinSize(150,  50);
+		GridPane.setConstraints(loginButton, 1, 0);
+		loginButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		loginButton.setOnAction(e -> window.setScene(login));
 		
 		
 		cartHomeButton = new Button();
@@ -1202,16 +1243,144 @@ public class Dispenser extends Application{
 			ReceiptBox.display(currentCartText);
 		});
 		
+		bossHomeBackButton = new Button ("Back to Main Menu");
+		bossHomeBackButton.setMinSize(250, 50);
+		GridPane.setConstraints(bossHomeBackButton, 0, 0);
+		bossHomeBackButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		bossHomeBackButton.setOnAction(e -> window.setScene(addMoney));
+		
+		loginCancelButton = new Button ("Cancel");
+		loginCancelButton.setMinSize(315, 50);
+		loginCancelButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		loginCancelButton.setOnAction(e -> window.setScene(addMoney));
+		GridPane.setConstraints(loginCancelButton, 1, 6, 3, 1);
+		
+		loginOneButton = new Button ("1");
+		loginOneButton.setMinSize(100, 100);
+		loginOneButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginOneButton.setOnAction(e -> dispenser.passwordAttempt.append("1"));
+		GridPane.setConstraints(loginOneButton, 1, 2);
+		
+		loginTwoButton = new Button ("2");
+		loginTwoButton.setMinSize(100, 100);
+		loginTwoButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginTwoButton.setOnAction(e -> dispenser.passwordAttempt.append("2"));
+		GridPane.setConstraints(loginTwoButton, 2, 2);
+		
+		loginThreeButton = new Button ("3");
+		loginThreeButton.setMinSize(100, 100);
+		loginThreeButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginThreeButton.setOnAction(e -> dispenser.passwordAttempt.append("3"));
+		GridPane.setConstraints(loginThreeButton, 3, 2);
+		
+		loginFourButton = new Button ("4");
+		loginFourButton.setMinSize(100, 100);
+		loginFourButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginFourButton.setOnAction(e -> dispenser.passwordAttempt.append("4"));
+		GridPane.setConstraints(loginFourButton, 1, 3);
+		
+		loginFiveButton = new Button ("5");
+		loginFiveButton.setMinSize(100, 100);
+		loginFiveButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginFiveButton.setOnAction(e -> dispenser.passwordAttempt.append("5"));
+		GridPane.setConstraints(loginFiveButton, 2, 3);
+		
+		loginSixButton = new Button ("6");
+		loginSixButton.setMinSize(100, 100);
+		loginSixButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginSixButton.setOnAction(e -> dispenser.passwordAttempt.append("6"));
+		GridPane.setConstraints(loginSixButton, 3, 3);
+		
+		loginSevenButton = new Button ("7");
+		loginSevenButton.setMinSize(100, 100);
+		loginSevenButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginSevenButton.setOnAction(e -> dispenser.passwordAttempt.append("7"));
+		GridPane.setConstraints(loginSevenButton, 1, 4);
+		
+		loginEightButton = new Button ("8");
+		loginEightButton.setMinSize(100, 100);
+		loginEightButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginEightButton.setOnAction(e -> dispenser.passwordAttempt.append("8"));
+		GridPane.setConstraints(loginEightButton, 2, 4);
+		
+		loginNineButton = new Button ("9");
+		loginNineButton.setMinSize(100, 100);
+		loginNineButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 50px;");
+		loginNineButton.setOnAction(e -> dispenser.passwordAttempt.append("9"));
+		GridPane.setConstraints(loginNineButton, 3, 4);
+		
+		Label wrongPassword = new Label("Password incorrect, try again.");
+		
+		loginSubmitButton = new Button ("Submit");
+		loginSubmitButton.setMinSize(315, 50);
+		GridPane.setConstraints(loginSubmitButton, 1, 5, 3, 1);
+		loginSubmitButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		loginSubmitButton.setOnAction(e -> {
+			if(dispenser.currentPassword.toString().equals(dispenser.passwordAttempt.toString())){
+				window.setScene(bossHome);
+			}else{
+				dispenser.resetPasswordAttempt();
+				ReceiptBox.display(wrongPassword);
+			}
+		});
+		
+		myVendingMachinesButton = new Button ("My Machines");
+		myVendingMachinesButton.setMinSize(250, 50);
+		GridPane.setConstraints(myVendingMachinesButton, 0, 1);
+		myVendingMachinesButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		myVendingMachinesButton.setOnAction(e -> window.setScene(myVendingMachines));
+		
+		vendingMachineFromCSVButton = new Button("Vend-O-Matic 5000 Inventory");
+		vendingMachineFromCSVButton.setMinSize(250, 50);
+		GridPane.setConstraints(vendingMachineFromCSVButton, 0, 2);
+		vendingMachineFromCSVButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		vendingMachineFromCSVButton.setOnAction(e -> {
+			Global_Inventory_Management.readInFiles(Global_Inventory_Management.InventoryFile);
+			StringBuilder vendOMatic5000Inventory = new StringBuilder();
+			for (int i = 0; i < Global_Inventory_Management.allProducts.size(); i++){
+				vendOMatic5000Inventory.append(Global_Inventory_Management.allProducts.get(i).getName());
+				vendOMatic5000Inventory.append(": Quantity: ");
+				vendOMatic5000Inventory.append(Global_Inventory_Management.allProducts.get(i).getQuantity());
+				vendOMatic5000Inventory.append(" Location: ");
+				vendOMatic5000Inventory.append(Global_Inventory_Management.allProducts.get(i).getLocation());
+				vendOMatic5000Inventory.append("\n");
+			}
+			
+			String newText = vendOMatic5000Inventory.toString();
+			inventoryText.setText(newText);
+			ReceiptBox.display(inventoryText);
+		});
+		
+		
+		Label enterPinLabel = new Label("Enter your PIN");
+		GridPane.setConstraints(enterPinLabel, 1, 1, 3, 1);
+		enterPinLabel.setStyle("-fx-font: 48 arial;");
+		
+		
 	
 		Label creditText = new Label();
 		GridPane.setConstraints(creditText, 1, 0);
 		
 		//Displays Welcome text
-		Label homeLable = new Label("WELCOME!");
-		GridPane.setConstraints(homeLable, 1, 1, 2, 1);
-		homeLable.setAlignment(Pos.CENTER);
-		homeLable.setStyle("-fx-font: 94 arial;");
-		homeLable.setMinSize(100, 100);
+		Label homeLabel = new Label("  Choose A Category!");
+		GridPane.setConstraints(homeLabel, 1, 1, 2, 1);
+		homeLabel.setAlignment(Pos.CENTER);
+		homeLabel.setStyle("-fx-font: 50 arial;");
+		homeLabel.setMinSize(100, 100);
 		
 		Image backgroundImage = new Image(getClass().getResourceAsStream("bluespots.jpg"));
 		
@@ -1223,8 +1392,9 @@ public class Dispenser extends Application{
 		homeLayout.setPadding(new Insets(10, 10, 10, 10));
 		homeLayout.setVgap(10);
 		homeLayout.setHgap(8);
+		homeLayout.setAlignment(Pos.CENTER);
 		homeLayout.setBackground(newBackground);
-		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLable, doneButton, cancelButton, homeCreditText, cartHomeButton, 
+		homeLayout.getChildren().addAll(drinksButton, chipsButton, candyButton, gumButton, homeLabel, doneButton, cancelButton, homeCreditText, cartHomeButton, 
 				addFundsButton);
 		
 		//Sets the layout for the drinks screen.
@@ -1232,6 +1402,7 @@ public class Dispenser extends Application{
 		drinksLayout.setPadding(new Insets(10, 10, 10, 10));
 		drinksLayout.setVgap(10);
 		drinksLayout.setHgap(8);
+		drinksLayout.setAlignment(Pos.CENTER);
 		drinksLayout.setBackground(newBackground);
 		drinksLayout.getChildren().addAll(dasaniButton, spriteButton, cocaColaButton,  minuteMaidButton, drinksBackButton, drinkCreditText, cartDrinksButton);
 		
@@ -1240,6 +1411,7 @@ public class Dispenser extends Application{
 		chipsLayout.setPadding(new Insets(10, 10, 10, 10));
 		chipsLayout.setVgap(10);
 		chipsLayout.setHgap(8);
+		chipsLayout.setAlignment(Pos.CENTER);
 		chipsLayout.setBackground(newBackground);
 		chipsLayout.getChildren().addAll(laysButton, missVickiesButton, doritosButton, sunChipsButton, chipsBackButton, chipsCreditText, cartChipsButton);
 		
@@ -1248,6 +1420,7 @@ public class Dispenser extends Application{
 		candyLayout.setPadding(new Insets(10, 10, 10, 10));
 		candyLayout.setVgap(10);
 		candyLayout.setHgap(8);
+		candyLayout.setAlignment(Pos.CENTER);
 		candyLayout.setBackground(newBackground);
 		candyLayout.getChildren().addAll(skittlesButton, mandMButton, candyBackButton, snickersButton, starburstButton, candyCreditText, cartCandyButton);
 		
@@ -1256,6 +1429,7 @@ public class Dispenser extends Application{
 		gumLayout.setPadding(new Insets(10, 10, 10, 10));
 		gumLayout.setVgap(10);
 		gumLayout.setHgap(8);
+		gumLayout.setAlignment(Pos.CENTER);
 		gumLayout.setBackground(newBackground);
 		gumLayout.getChildren().addAll( extraButton, bigRedButton, gumBackButton, wrigleysButton, tridentButton, gumCreditText, cartGumButton);
 		
@@ -1263,6 +1437,7 @@ public class Dispenser extends Application{
 		inventoryLayout.setPadding(new Insets(10, 10, 10, 10));
 		inventoryLayout.setVgap(10);
 		inventoryLayout.setHgap(8);
+		inventoryLayout.setAlignment(Pos.CENTER);
 		inventoryLayout.setBackground(newBackground);
 		inventoryLayout.getChildren().addAll(inventoryText, inventoryBackButton);
 		
@@ -1270,8 +1445,35 @@ public class Dispenser extends Application{
 		insertMoney.setPadding(new Insets(10, 10, 10, 10));
 		insertMoney.setVgap(10);
 		insertMoney.setHgap(8);
+		insertMoney.setAlignment(Pos.CENTER);
 		insertMoney.setBackground(newBackground);
-		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel, inventoryButton);
+		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel, loginButton);
+		
+		GridPane loginGrid = new GridPane();
+		loginGrid.setPadding(new Insets(10, 10, 10, 10));
+		loginGrid.setVgap(10);
+		loginGrid.setHgap(8);
+		loginGrid.setAlignment(Pos.CENTER);
+		loginGrid.setBackground(newBackground);
+		loginGrid.getChildren().addAll(loginOneButton, loginTwoButton, loginThreeButton, loginFourButton, loginFiveButton, loginSixButton, loginSevenButton,
+				loginEightButton, loginNineButton, loginCancelButton, loginSubmitButton, enterPinLabel);
+		
+		GridPane bossHomeGrid = new GridPane();
+		bossHomeGrid.setPadding(new Insets(10, 10, 10, 10));
+		bossHomeGrid.setVgap(10);
+		bossHomeGrid.setHgap(8);
+		bossHomeGrid.setAlignment(Pos.CENTER);
+		bossHomeGrid.setBackground(newBackground);
+		bossHomeGrid.getChildren().addAll(bossHomeBackButton, myVendingMachinesButton);
+		
+		GridPane myVendingMachinesGrid = new GridPane();
+		myVendingMachinesGrid.setPadding(new Insets(10, 10, 10, 10));
+		myVendingMachinesGrid.setVgap(10);
+		myVendingMachinesGrid.setHgap(8);
+		myVendingMachinesGrid.setAlignment(Pos.CENTER);
+		myVendingMachinesGrid.setBackground(newBackground);
+		myVendingMachinesGrid.getChildren().addAll(inventoryButton, vendingMachineFromCSVButton);
+		
 		
 		//Different screens in this application. Sets layout to each scene and defines the screen size.
 		home = new Scene(homeLayout, 545, 740);
@@ -1281,6 +1483,10 @@ public class Dispenser extends Application{
 		gum = new Scene(gumLayout, 545, 740);
 		inventory = new Scene(inventoryLayout, 545, 740);
 		addMoney = new Scene(insertMoney, 545, 740);
+		login = new Scene(loginGrid, 545, 740);
+		bossHome = new Scene(bossHomeGrid, 545, 740);
+		myVendingMachines = new Scene(myVendingMachinesGrid, 545, 740);
+	
 		
 		//Sets the home screen to display on start.
 		primaryStage.setScene(addMoney);
