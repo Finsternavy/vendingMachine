@@ -1,6 +1,7 @@
 package vendingMachine;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public abstract class Product implements Comparable<Product>{
 	
@@ -17,9 +18,10 @@ public abstract class Product implements Comparable<Product>{
 		  this.price = price;
 	  }
 	   
-	  public Product(String name, double price, String location){ 
+	  public Product(String name, double price, double costToOrder, int quantity, String location){ 
 	    this.name = name; 
 	    this.price = price; 
+	    this.quantity = quantity;
 	    this.location = location;
 	    
 	    } 
@@ -72,4 +74,5 @@ public abstract class Product implements Comparable<Product>{
 				return 0;
 			}
 		}
+		
 }

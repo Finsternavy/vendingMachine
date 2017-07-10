@@ -15,8 +15,8 @@ public class InventoryManager {
 		}
 	}
 	
-	public void addOneToInventory(vendingMachine.Dispenser.CHOICE lays2, Dispenser dispenser){
-		switch (lays2){
+	public void addOneToInventory(CHOICE choice, Dispenser dispenser){
+		switch (choice){
 			case LAYS:
 				Chips lays = new Chips(dispenser.products.get(0).getName(), dispenser.products.get(0).getPrice());
 				dispenser.laysStock.add(lays);
@@ -92,52 +92,52 @@ public class InventoryManager {
 			String name = arrayList.get(0).getName();
 			switch (name){
 			case "Lays":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.LAYS, dispenser);
+				this.addOneToInventory(CHOICE.LAYS, dispenser);
 				break;
 			case "Doritos":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.DORITOS, dispenser);
+				this.addOneToInventory(CHOICE.DORITOS, dispenser);
 				break;
 			case "Sun Chips":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.SUNCHIPS, dispenser);
+				this.addOneToInventory(CHOICE.SUNCHIPS, dispenser);
 				break;
 			case "Miss Vickie's":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.MISSVICKIES, dispenser);
+				this.addOneToInventory(CHOICE.MISSVICKIES, dispenser);
 				break;
 			case "Snickers":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.SNICKERS, dispenser);
+				this.addOneToInventory(CHOICE.SNICKERS, dispenser);
 				break;
 			case "Skittles":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.SKITTLES, dispenser);
+				this.addOneToInventory(CHOICE.SKITTLES, dispenser);
 				break;
 			case "M&M's":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.MANDM, dispenser);
+				this.addOneToInventory(CHOICE.MANDM, dispenser);
 				break;
 			case "Starburst":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.STARBURST, dispenser);
+				this.addOneToInventory(CHOICE.STARBURST, dispenser);
 				break;
 			case "Trident":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.TRIDENT, dispenser);
+				this.addOneToInventory(CHOICE.TRIDENT, dispenser);
 				break;
 			case "Extra":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.EXTRA, dispenser);
+				this.addOneToInventory(CHOICE.EXTRA, dispenser);
 				break;
 			case "Big Red":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.BIGRED, dispenser);
+				this.addOneToInventory(CHOICE.BIGRED, dispenser);
 				break;
 			case "Wrigley's":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.WRIGLEYS, dispenser);
+				this.addOneToInventory(CHOICE.WRIGLEYS, dispenser);
 				break;
 			case "Coca-Cola":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.COCACOLA, dispenser);
+				this.addOneToInventory(CHOICE.COCACOLA, dispenser);
 				break;
 			case "Sprite":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.SPRITE, dispenser);
+				this.addOneToInventory(CHOICE.SPRITE, dispenser);
 				break;
 			case "Dasani":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.DASANI, dispenser);
+				this.addOneToInventory(CHOICE.DASANI, dispenser);
 				break;
 			case "Minute Maid":
-				this.addOneToInventory(vendingMachine.Dispenser.CHOICE.MINUTEMAID, dispenser);
+				this.addOneToInventory(CHOICE.MINUTEMAID, dispenser);
 				break;
 				
 			}

@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import vendingMachineGUIBoss.Animation;
 import vendingMachineGUIBoss.ReceiptBox;
 import java.lang.Object;
+import vendingMachine.CHOICE;
 
 
 /**
@@ -85,6 +86,7 @@ public class Dispenser extends Application{
 	Button bossHomeBackButton;
 	Button myVendingMachinesButton;
 	Button vendingMachineFromCSVButton;
+	Button myMachinesBackButton;
 	GridPane homeLayout;
 	Stage window;
 	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney, login, bossHome, myVendingMachines;
@@ -217,26 +219,7 @@ public class Dispenser extends Application{
 
 	}
 	
-	
-	public enum CHOICE{
-		LAYS,
-		SUNCHIPS,
-		DORITOS,
-		MISSVICKIES,
-		SKITTLES,
-		SNICKERS,
-		STARBURST,
-		MANDM,
-		BIGRED,
-		TRIDENT,
-		EXTRA,
-		WRIGLEYS,
-		COCACOLA,
-		SPRITE,
-		MINUTEMAID,
-		DASANI
-		
-	}
+
 	
 	public void restoreDefaultPassword(){
 		currentPassword.setLength(0);
@@ -318,7 +301,8 @@ public class Dispenser extends Application{
 				chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 				candyCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 				gumCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
-				Restock.checkInventory(dispenser.cocaColaStock, dispenser);
+				if(dispenser.cocaColaStock.size() != 0)
+					Restock.checkInventory(dispenser.cocaColaStock, dispenser);
 			}
 			else if(dispenser.cocaColaStock.size() < 1)
 				ReceiptBox.display(outOfStockText);
@@ -871,22 +855,38 @@ public class Dispenser extends Application{
 		inventoryButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
 				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
 		inventoryButton.setOnAction(e -> {
-			inventoryText.setText("Current Inventory: \n\n" + "Lays" + ": " + dispenser.laysStock.size() + "\n"
-					+ "Doritos" + ": " + dispenser.doritosStock.size() + "\n"
-					+ "Sun Chips" + ": " + dispenser.sunChipsStock.size() + "\n"
-					+ "Miss Vickie's" + ": " + dispenser.missVickiesStock.size() + "\n"
-					+ "Skittles" + ": " + dispenser.skittlesStock.size() + "\n"
-					+ "Snickers" + ": " + dispenser.snickersStock.size() + "\n"
-					+ "M&M's" + ": " + dispenser.mandMStock.size() + "\n"
-					+ "Starburst" + ": " + dispenser.starburstStock.size() + "\n"
-					+ "Trident" + ": " + dispenser.tridentStock.size() + "\n"
-					+ "Big Red" + ": " + dispenser.bigRedStock.size() + "\n"
-					+ "Extra" + ": " + dispenser.extraStock.size() + "\n"
-					+ "Wrigleys" + ": " + dispenser.wrigleysStock.size() + "\n"
-					+ "Coca-Cola" + ": " + dispenser.cocaColaStock.size() + "\n"
-					+ "Sprite" + ": " + dispenser.spriteStock.size() + "\n"
-					+ "Minute Maid" + ": " + dispenser.minuteMaidStock.size() + "\n"
-					+ "Dasani" + ": " + dispenser.dasaniStock.size() + "\n");
+			inventoryText.setText("Current Inventory: \n\n" + "Lays" + ": " + dispenser.laysStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" + 
+						((dispenser.slotMax - dispenser.laysStock.size()) * .5) + "0\n"
+					+ "Doritos" + ": " + dispenser.doritosStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.doritosStock.size()) * .5) + "0\n"
+					+ "Sun Chips" + ": " + dispenser.sunChipsStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.sunChipsStock.size()) * .5) + "0\n"
+					+ "Miss Vickie's" + ": " + dispenser.missVickiesStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.missVickiesStock.size()) * .5) + "0\n"
+					+ "Skittles" + ": " + dispenser.skittlesStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.skittlesStock.size()) * .5) + "0\n"
+					+ "Snickers" + ": " + dispenser.snickersStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.snickersStock.size()) * .5) + "0\n"
+					+ "M&M's" + ": " + dispenser.mandMStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.mandMStock.size()) * .5) + "0\n"
+					+ "Starburst" + ": " + dispenser.starburstStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.starburstStock.size()) * .5) + "0\n"
+					+ "Trident" + ": " + dispenser.tridentStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.tridentStock.size()) * .5) + "0\n"
+					+ "Big Red" + ": " + dispenser.bigRedStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.bigRedStock.size()) * .5) + "0\n"
+					+ "Extra" + ": " + dispenser.extraStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.extraStock.size()) * .5) + "0\n"
+					+ "Wrigleys" + ": " + dispenser.wrigleysStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.wrigleysStock.size()) * .5) + "0\n"
+					+ "Coca-Cola" + ": " + dispenser.cocaColaStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.cocaColaStock.size()) * .5) + "0\n"
+					+ "Sprite" + ": " + dispenser.spriteStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.spriteStock.size()) * .5) + "0\n"
+					+ "Minute Maid" + ": " + dispenser.minuteMaidStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.minuteMaidStock.size()) * .5) + "0\n"
+					+ "Dasani" + ": " + dispenser.dasaniStock.size() + " Location: Vend-O-Matic 6000 Cost to order: $" +
+						((dispenser.slotMax - dispenser.dasaniStock.size()) * .5) + "0\n");
 			ReceiptBox.display(inventoryText);
 			});
 		
@@ -1330,12 +1330,24 @@ public class Dispenser extends Application{
 		loginSubmitButton.setOnAction(e -> {
 			if(dispenser.currentPassword.toString().equals(dispenser.passwordAttempt.toString())){
 				window.setScene(bossHome);
+				dispenser.passwordAttempt.setLength(0);
 			}else{
 				dispenser.resetPasswordAttempt();
 				ReceiptBox.display(wrongPassword);
 			}
 		});
 		
+		Global_Inventory_Management.readInFiles(Global_Inventory_Management.InventoryFile);
+		StringBuilder vendOMatic5000Inventory = new StringBuilder();
+		for (int i = 0; i < Global_Inventory_Management.allProducts.size(); i++){
+			vendOMatic5000Inventory.append(Global_Inventory_Management.readInProducts[i].getName());
+			vendOMatic5000Inventory.append(": Quantity: ");
+			vendOMatic5000Inventory.append(Global_Inventory_Management.readInProducts[i].getQuantity());
+			vendOMatic5000Inventory.append(" Location: ");
+			vendOMatic5000Inventory.append(Global_Inventory_Management.readInProducts[i].getLocation());
+			vendOMatic5000Inventory.append("\n");
+		}
+			
 		myVendingMachinesButton = new Button ("My Machines");
 		myVendingMachinesButton.setMinSize(250, 50);
 		GridPane.setConstraints(myVendingMachinesButton, 0, 1);
@@ -1349,21 +1361,17 @@ public class Dispenser extends Application{
 		vendingMachineFromCSVButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
 				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
 		vendingMachineFromCSVButton.setOnAction(e -> {
-			Global_Inventory_Management.readInFiles(Global_Inventory_Management.InventoryFile);
-			StringBuilder vendOMatic5000Inventory = new StringBuilder();
-			for (int i = 0; i < Global_Inventory_Management.allProducts.size(); i++){
-				vendOMatic5000Inventory.append(Global_Inventory_Management.allProducts.get(i).getName());
-				vendOMatic5000Inventory.append(": Quantity: ");
-				vendOMatic5000Inventory.append(Global_Inventory_Management.allProducts.get(i).getQuantity());
-				vendOMatic5000Inventory.append(" Location: ");
-				vendOMatic5000Inventory.append(Global_Inventory_Management.allProducts.get(i).getLocation());
-				vendOMatic5000Inventory.append("\n");
-			}
-			
 			String newText = vendOMatic5000Inventory.toString();
 			inventoryText.setText(newText);
 			ReceiptBox.display(inventoryText);
 		});
+		
+		myMachinesBackButton = new Button("Back");
+		GridPane.setConstraints(myMachinesBackButton, 0, 5);
+		myMachinesBackButton.setMinSize(250,  50);
+		myMachinesBackButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		myMachinesBackButton.setOnAction(e -> window.setScene(bossHome));
 		
 		
 		Label enterPinLabel = new Label("Enter your PIN");
@@ -1472,7 +1480,7 @@ public class Dispenser extends Application{
 		myVendingMachinesGrid.setHgap(8);
 		myVendingMachinesGrid.setAlignment(Pos.CENTER);
 		myVendingMachinesGrid.setBackground(newBackground);
-		myVendingMachinesGrid.getChildren().addAll(inventoryButton, vendingMachineFromCSVButton);
+		myVendingMachinesGrid.getChildren().addAll(inventoryButton, vendingMachineFromCSVButton, myMachinesBackButton);
 		
 		
 		//Different screens in this application. Sets layout to each scene and defines the screen size.

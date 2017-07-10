@@ -2,8 +2,11 @@ package vendingMachine;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 
@@ -12,7 +15,7 @@ public class Global_Inventory_Management extends Product implements Comparable<P
 	
 		
 		static int i = 0;
-		static Product[] readInProducts = new Product[17];
+		static Product[] readInProducts = new Product[16];
 		static ArrayList<Product> allProducts = new ArrayList<Product>();
 		static File InventoryFile = new File("C:\\Users\\Finst\\VendingMachine\\src\\vendingMachine\\Inventory.csv");
 		static Scanner scanner = null;
@@ -42,8 +45,9 @@ public class Global_Inventory_Management extends Product implements Comparable<P
 			System.out.println("File not found, argggggggggg");
 		}
 		
-		Collections.sort(allProducts);
+		Arrays.sort(readInProducts);
 	}
+		
 		
 		public static Object recursiveSearch(String target, int startingIndex){
 			System.out.println("Printing stack trace: ");
@@ -58,19 +62,7 @@ public class Global_Inventory_Management extends Product implements Comparable<P
 				return allProducts.get(startingIndex).getLocation() + " " + allProducts.get(startingIndex).getQuantity();
 			else
 				return recursiveSearch(target, startingIndex + 1);
-			
-		
-			
+				
 		}
 		
-		
-		public static void main (String[] args){
-			readInFiles(InventoryFile);
-			recursiveSearch("Doritos", 0);
-			
-
-			
-			
-			
-		}
 }
