@@ -4,7 +4,6 @@
 package vendingMachine;
 
 import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -87,9 +86,14 @@ public class Dispenser extends Application{
 	Button myVendingMachinesButton;
 	Button vendingMachineFromCSVButton;
 	Button myMachinesBackButton;
+	Button simulationButton;
+	Button restockButton, laysRestockButton, doritosRestockButton, missVickiesRestockButton, sunChipsRestockButton, mandmRestockButton,
+		snickersRestockButton, starburstRestockButton, skittlesRestockButton, tridentRestockButton, bigRedRestockButton, wrigleysRestockButton,
+		cocaColaRestockButton, spriteRestockButton, minuteMaidRestockButton, dasaniRestockButton, restockBackButton, extraRestockButton;
+	Button bankButton, profitsButton, changeAvailableButton, bankBackButton;
 	GridPane homeLayout;
 	Stage window;
-	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney, login, bossHome, myVendingMachines;
+	Scene drinks, chips, candy, gum, home, receipt, inventory, addMoney, login, bossHome, myVendingMachines, restockScene, bankScene;
 
 	public InventoryManager myInventoryManager = new InventoryManager();
 	public ArrayList<Product> products = new ArrayList<>();
@@ -139,15 +143,15 @@ public class Dispenser extends Application{
 	// that item and adds the value to income. Adjusts credit value and change 
 	// as needed and for display purposes.
 
-	public void dispense(int numSelected, ArrayList<Product> arrayList) {
+	public void dispense(int numSelected, ArrayList<Product> arrayList, Dispenser dispenser) {
 		if(arrayList.size() != 0){
-		cart.add((Product) arrayList.get(0));
-		myInventoryManager.reduceInventory(arrayList);
-		double newTotal = total + products.get(numSelected).getPrice();
-		total = newTotal;
-		myBank.setChange(myBank.getCreditAvailable() - products.get(numSelected).getPrice());
-		myBank.setCreditAvailable(myBank.getChange());
-		myBank.setIncome(myBank.getIncome() + products.get(numSelected).getPrice());
+			dispenser.cart.add((Product) arrayList.get(0));
+		dispenser.myInventoryManager.reduceInventory(arrayList);
+		double newTotal = dispenser.total + dispenser.products.get(numSelected).getPrice();
+		dispenser.total = newTotal;
+		dispenser.myBank.setChange(dispenser.myBank.getCreditAvailable() - dispenser.products.get(numSelected).getPrice());
+		dispenser.myBank.setCreditAvailable(dispenser.myBank.getChange());
+		dispenser.myBank.setIncome(dispenser.myBank.getIncome() + dispenser.products.get(numSelected).getPrice());
 		} else {
 			return;
 		}
@@ -179,7 +183,7 @@ public class Dispenser extends Application{
 		Snack wrigleys = new Gum("Wrigley's", 1.00, 1, this.name);
 		Drink cocaCola = new Drink("Coca-Cola", 1.50, 1, this.name);
 		Drink sprite = new Drink("Sprite", 1.50, 1, this.name);
-		Drink minuteMain = new Drink("Minute Maid", 2.00, 1, this.name);
+		Drink minuteMaid = new Drink("Minute Maid", 2.00, 1, this.name);
 		Drink dasani = new Drink("Dasani", 1.00, 1, this.name);
 		
 		laysStock.add(lays);
@@ -196,7 +200,7 @@ public class Dispenser extends Application{
 		wrigleysStock.add(wrigleys);
 		cocaColaStock.add(cocaCola);
 		spriteStock.add(sprite);
-		minuteMaidStock.add(minuteMain);
+		minuteMaidStock.add(minuteMaid);
 		dasaniStock.add(dasani);
 		products.add(lays);
 		products.add(sunChips);
@@ -212,7 +216,7 @@ public class Dispenser extends Application{
 		products.add(wrigleys);
 		products.add(cocaCola);
 		products.add(sprite);
-		products.add(minuteMain);
+		products.add(minuteMaid);
 		products.add(dasani);
 
 		}
@@ -239,7 +243,7 @@ public class Dispenser extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		window = primaryStage;
 		window.setTitle("Vend-O-matic 6000!");
-		Dispenser dispenser = new Dispenser("Vend-O-Matic 6000",20);
+		Dispenser dispenser = new Dispenser("Vend-O-Matic 6000", 20);
 		
 		Label homeCreditText = new Label("Credit: " + dispenser.myBank.getCreditAvailable() + "0");
 		GridPane.setConstraints(homeCreditText, 1, 0);
@@ -295,7 +299,7 @@ public class Dispenser extends Application{
 		cocaColaButton.setOnAction(e -> {
 			if(dispenser.cocaColaStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.cocaColaStock.get(0).getPrice()){
 				Animation.animateStart(cocaColaView);
-				dispenser.dispense(12, dispenser.cocaColaStock);
+				dispenser.dispense(12, dispenser.cocaColaStock, dispenser);
 				homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 				drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 				chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -327,7 +331,7 @@ public class Dispenser extends Application{
 		spriteButton.setOnAction(e -> {
 			if(dispenser.spriteStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.spriteStock.get(0).getPrice()){
 				Animation.animateStart(spriteView);
-			dispenser.dispense(13, dispenser.spriteStock);
+			dispenser.dispense(13, dispenser.spriteStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -357,7 +361,7 @@ public class Dispenser extends Application{
 		minuteMaidButton.setOnAction(e -> {
 			if(dispenser.minuteMaidStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.minuteMaidStock.get(0).getPrice()){
 				Animation.animateStart(minuteMaidView);
-			dispenser.dispense(14, dispenser.minuteMaidStock);
+			dispenser.dispense(14, dispenser.minuteMaidStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -386,7 +390,7 @@ public class Dispenser extends Application{
 		dasaniButton.setOnAction(e -> {
 			if(dispenser.dasaniStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.dasaniStock.get(0).getPrice()){
 				Animation.animateStart(dasaniView);
-			dispenser.dispense(15, dispenser.dasaniStock);
+			dispenser.dispense(15, dispenser.dasaniStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -423,7 +427,7 @@ public class Dispenser extends Application{
 		doritosButton.setOnAction(e -> {
 			if(dispenser.doritosStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.doritosStock.get(0).getPrice()){
 				Animation.animateStart(doritosView);
-			dispenser.dispense(2, dispenser.doritosStock);
+			dispenser.dispense(2, dispenser.doritosStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -452,7 +456,7 @@ public class Dispenser extends Application{
 		laysButton.setOnAction(e -> {
 			if(dispenser.laysStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.laysStock.get(0).getPrice()){
 				Animation.animateStart(laysView);
-			dispenser.dispense(0, dispenser.laysStock);
+			dispenser.dispense(0, dispenser.laysStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -481,7 +485,7 @@ public class Dispenser extends Application{
 		sunChipsButton.setOnAction(e -> {
 			if(dispenser.sunChipsStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.sunChipsStock.get(0).getPrice()){
 				Animation.animateStart(sunChipsView);
-			dispenser.dispense(1, dispenser.sunChipsStock);
+			dispenser.dispense(1, dispenser.sunChipsStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -510,7 +514,7 @@ public class Dispenser extends Application{
 		missVickiesButton.setOnAction(e -> {
 			if(dispenser.missVickiesStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.missVickiesStock.get(0).getPrice()){
 				Animation.animateStart(missVickiesView);
-			dispenser.dispense(3, dispenser.missVickiesStock);
+			dispenser.dispense(3, dispenser.missVickiesStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -547,7 +551,7 @@ public class Dispenser extends Application{
 		starburstButton.setOnAction(e -> {
 			if(dispenser.starburstStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.starburstStock.get(0).getPrice()){
 				Animation.animateStart(starburstView);
-			dispenser.dispense(6, dispenser.starburstStock);
+			dispenser.dispense(6, dispenser.starburstStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -576,7 +580,7 @@ public class Dispenser extends Application{
 		skittlesButton.setOnAction(e -> {
 			if(dispenser.skittlesStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.skittlesStock.get(0).getPrice()){
 				Animation.animateStart(skittlesView);
-			dispenser.dispense(4, dispenser.skittlesStock);
+			dispenser.dispense(4, dispenser.skittlesStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -605,7 +609,7 @@ public class Dispenser extends Application{
 		snickersButton.setOnAction(e -> {
 			if(dispenser.snickersStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.snickersStock.get(0).getPrice()){
 				Animation.animateStart(snickersView);
-			dispenser.dispense(5, dispenser.snickersStock);
+			dispenser.dispense(5, dispenser.snickersStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -634,7 +638,7 @@ public class Dispenser extends Application{
 		mandMButton.setOnAction(e -> {
 			if(dispenser.mandMStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.mandMStock.get(0).getPrice()){
 				Animation.animateStart(mandMView);
-			dispenser.dispense(7, dispenser.mandMStock);
+			dispenser.dispense(7, dispenser.mandMStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -672,7 +676,7 @@ public class Dispenser extends Application{
 		tridentButton.setOnAction(e -> {
 			if(dispenser.tridentStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.tridentStock.get(0).getPrice()){
 				Animation.animateStart(tridentView);
-			dispenser.dispense(9, dispenser.tridentStock);
+			dispenser.dispense(9, dispenser.tridentStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -701,7 +705,7 @@ public class Dispenser extends Application{
 		extraButton.setOnAction(e -> {
 			if(dispenser.extraStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.extraStock.get(0).getPrice()){
 				Animation.animateStart(extraView);
-			dispenser.dispense(10, dispenser.extraStock);
+			dispenser.dispense(10, dispenser.extraStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -730,7 +734,7 @@ public class Dispenser extends Application{
 		wrigleysButton.setOnAction(e -> {
 			if(dispenser.wrigleysStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.wrigleysStock.get(0).getPrice()){
 				Animation.animateStart(wrigleysView);
-			dispenser.dispense(11, dispenser.wrigleysStock);
+			dispenser.dispense(11, dispenser.wrigleysStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -759,7 +763,7 @@ public class Dispenser extends Application{
 		bigRedButton.setOnAction(e -> {
 			if(dispenser.bigRedStock.size() > 0 && dispenser.myBank.getCreditAvailable() >= dispenser.bigRedStock.get(0).getPrice()){
 				Animation.animateStart(bigRedView);
-			dispenser.dispense(8, dispenser.bigRedStock);
+			dispenser.dispense(8, dispenser.bigRedStock, dispenser);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			drinkCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
 			chipsCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -837,6 +841,7 @@ public class Dispenser extends Application{
 					+ "Your Change: $" + dispenser.myBank.getChange() + "0");
 			ReceiptBox.display(receiptText);
 			dispenser.cart.clear();
+			dispenser.myBank.setChangeAvailable(dispenser.myBank.getChangeAvailable() - dispenser.myBank.getChange());
 			dispenser.total = 0;
 			dispenser.myBank.setCreditAvailable(0.00);
 			homeCreditText.setText("Credit: $" + dispenser.myBank.getCreditAvailable() + "0");
@@ -1161,7 +1166,7 @@ public class Dispenser extends Application{
 		GridPane.setConstraints(currentCartText, 1, 0);
 		
 		loginButton = new Button("Admin Login");
-		loginButton.setMinSize(150,  50);
+		loginButton.setMinSize(250,  50);
 		GridPane.setConstraints(loginButton, 1, 0);
 		loginButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
 				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
@@ -1373,6 +1378,443 @@ public class Dispenser extends Application{
 				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
 		myMachinesBackButton.setOnAction(e -> window.setScene(bossHome));
 		
+		simulationButton = new Button("Simulation");
+		GridPane.setConstraints(simulationButton, 2, 0);
+		simulationButton.setMinSize(250, 50);
+		simulationButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		myMachinesBackButton.setOnAction(e -> window.setScene(bossHome));
+		simulationButton.setOnAction(e -> {
+			CustomerDisplay display = new CustomerDisplay();
+			try {
+				display.start(primaryStage);
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
+		});
+		
+		Label restockSummary = new Label();
+		
+		restockButton = new Button("Restock");
+		GridPane.setConstraints(restockButton, 0, 2);
+		restockButton.setMinSize(250, 50);
+		restockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		restockButton.setOnAction(e -> window.setScene(restockScene));
+		
+		
+		laysRestockButton = new Button("Restock Lays");
+		GridPane.setConstraints(laysRestockButton, 0, 1);
+		laysRestockButton.setMinSize(250, 50);
+		laysRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		laysRestockButton.setOnAction(e -> {
+			if(dispenser.laysStock.size() > 0){
+				int onHand = dispenser.laysStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.laysStock, dispenser);
+				int newOnHand = dispenser.laysStock.size();
+				double restockCost = toRestock * (dispenser.laysStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		doritosRestockButton = new Button("Restock Doritos");
+		GridPane.setConstraints(doritosRestockButton, 0, 2);
+		doritosRestockButton.setMinSize(250, 50);
+		doritosRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		doritosRestockButton.setOnAction(e -> {
+			if(dispenser.doritosStock.size() > 0){
+				int onHand = dispenser.doritosStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.doritosStock, dispenser);
+				int newOnHand = dispenser.doritosStock.size();
+				double restockCost = toRestock * (dispenser.doritosStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		missVickiesRestockButton = new Button("Restock Miss Vickie's");
+		GridPane.setConstraints(missVickiesRestockButton, 0, 3);
+		missVickiesRestockButton.setMinSize(250, 50);
+		missVickiesRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		missVickiesRestockButton.setOnAction(e -> {
+			if(dispenser.missVickiesStock.size() > 0){
+				int onHand = dispenser.missVickiesStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.missVickiesStock, dispenser);
+				int newOnHand = dispenser.missVickiesStock.size();
+				double restockCost = toRestock * (dispenser.missVickiesStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		sunChipsRestockButton = new Button("Restock Sun Chips");
+		GridPane.setConstraints(sunChipsRestockButton, 0, 4);
+		sunChipsRestockButton.setMinSize(250, 50);
+		sunChipsRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		sunChipsRestockButton.setOnAction(e -> {
+			if(dispenser.sunChipsStock.size() > 0){
+				int onHand = dispenser.sunChipsStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.sunChipsStock, dispenser);
+				int newOnHand = dispenser.sunChipsStock.size();
+				double restockCost = toRestock * (dispenser.sunChipsStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		mandmRestockButton = new Button("Restock M&M's");
+		GridPane.setConstraints(mandmRestockButton, 0, 5);
+		mandmRestockButton.setMinSize(250, 50);
+		mandmRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		mandmRestockButton.setOnAction(e -> {
+			if(dispenser.mandMStock.size() > 0){
+				int onHand = dispenser.mandMStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.mandMStock, dispenser);
+				int newOnHand = dispenser.mandMStock.size();
+				double restockCost = toRestock * (dispenser.mandMStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		snickersRestockButton = new Button("Restock Snickers");
+		GridPane.setConstraints(snickersRestockButton, 0, 6);
+		snickersRestockButton.setMinSize(250, 50);
+		snickersRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		snickersRestockButton.setOnAction(e -> {
+			if(dispenser.snickersStock.size() > 0){
+				int onHand = dispenser.snickersStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.snickersStock, dispenser);
+				int newOnHand = dispenser.snickersStock.size();
+				double restockCost = toRestock * (dispenser.snickersStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		starburstRestockButton = new Button("Restock Starburst");
+		GridPane.setConstraints(starburstRestockButton, 0, 7);
+		starburstRestockButton.setMinSize(250, 50);
+		starburstRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		starburstRestockButton.setOnAction(e -> {
+			if(dispenser.starburstStock.size() > 0){
+				int onHand = dispenser.starburstStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.starburstStock, dispenser);
+				int newOnHand = dispenser.starburstStock.size();
+				double restockCost = toRestock * (dispenser.starburstStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		skittlesRestockButton = new Button("Restock Skittles");
+		GridPane.setConstraints(skittlesRestockButton, 0, 8);
+		skittlesRestockButton.setMinSize(250, 50);
+		skittlesRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		skittlesRestockButton.setOnAction(e -> {
+			if(dispenser.skittlesStock.size() > 0){
+				int onHand = dispenser.skittlesStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.skittlesStock, dispenser);
+				int newOnHand = dispenser.skittlesStock.size();
+				double restockCost = toRestock * (dispenser.skittlesStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		tridentRestockButton = new Button("Restock Trident");
+		GridPane.setConstraints(tridentRestockButton, 1, 1);
+		tridentRestockButton.setMinSize(250, 50);
+		tridentRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		tridentRestockButton.setOnAction(e -> {
+			if(dispenser.tridentStock.size() > 0){
+				int onHand = dispenser.tridentStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.tridentStock, dispenser);
+				int newOnHand = dispenser.tridentStock.size();
+				double restockCost = toRestock * (dispenser.tridentStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		bigRedRestockButton = new Button("Restock Big Red");
+		GridPane.setConstraints(bigRedRestockButton, 1, 2);
+		bigRedRestockButton.setMinSize(250, 50);
+		bigRedRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		bigRedRestockButton.setOnAction(e -> {
+			if(dispenser.bigRedStock.size() > 0){
+				int onHand = dispenser.bigRedStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.bigRedStock, dispenser);
+				int newOnHand = dispenser.bigRedStock.size();
+				double restockCost = toRestock * (dispenser.bigRedStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		wrigleysRestockButton = new Button("Restock Wrigley's");
+		GridPane.setConstraints(wrigleysRestockButton, 1, 3);
+		wrigleysRestockButton.setMinSize(250, 50);
+		wrigleysRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		wrigleysRestockButton.setOnAction(e -> {
+			if(dispenser.wrigleysStock.size() > 0){
+				int onHand = dispenser.wrigleysStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.wrigleysStock, dispenser);
+				int newOnHand = dispenser.wrigleysStock.size();
+				double restockCost = toRestock * (dispenser.wrigleysStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		extraRestockButton = new Button("Restock Wrigley's");
+		GridPane.setConstraints(extraRestockButton, 1, 4);
+		extraRestockButton.setMinSize(250, 50);
+		extraRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		extraRestockButton.setOnAction(e -> {
+			if(dispenser.extraStock.size() > 0){
+				int onHand = dispenser.extraStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.extraStock, dispenser);
+				int newOnHand = dispenser.extraStock.size();
+				double restockCost = toRestock * (dispenser.extraStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		cocaColaRestockButton = new Button("Restock Coca-Cola");
+		GridPane.setConstraints(cocaColaRestockButton, 1, 5);
+		cocaColaRestockButton.setMinSize(250, 50);
+		cocaColaRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		cocaColaRestockButton.setOnAction(e -> {
+			if(dispenser.cocaColaStock.size() > 0){
+				int onHand = dispenser.cocaColaStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.cocaColaStock, dispenser);
+				int newOnHand = dispenser.cocaColaStock.size();
+				double restockCost = toRestock * (dispenser.cocaColaStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.total + (dispenser.myBank.getIncome() - restockCost));
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		spriteRestockButton = new Button("Restock Sprite");
+		GridPane.setConstraints(spriteRestockButton, 1, 6);
+		spriteRestockButton.setMinSize(250, 50);
+		spriteRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		spriteRestockButton.setOnAction(e -> {
+			if(dispenser.laysStock.size() > 0){
+				int onHand = dispenser.spriteStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.spriteStock, dispenser);
+				int newOnHand = dispenser.spriteStock.size();
+				double restockCost = toRestock * (dispenser.spriteStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		minuteMaidRestockButton = new Button("Restock Minute Maid");
+		GridPane.setConstraints(minuteMaidRestockButton, 1, 7);
+		minuteMaidRestockButton.setMinSize(250, 50);
+		minuteMaidRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		minuteMaidRestockButton.setOnAction(e -> {
+			if(dispenser.minuteMaidStock.size() > 0){
+				int onHand = dispenser.minuteMaidStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.minuteMaidStock, dispenser);
+				int newOnHand = dispenser.minuteMaidStock.size();
+				double restockCost = toRestock * (dispenser.minuteMaidStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		
+		dasaniRestockButton = new Button("Restock Dasani");
+		GridPane.setConstraints(dasaniRestockButton, 1, 8);
+		dasaniRestockButton.setMinSize(250, 50);
+		dasaniRestockButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		dasaniRestockButton.setOnAction(e -> {
+			if(dispenser.dasaniStock.size() > 0){
+				int onHand = dispenser.dasaniStock.size();
+				int toRestock = dispenser.slotMax - onHand;
+				dispenser.myInventoryManager.restock(dispenser.dasaniStock, dispenser);
+				int newOnHand = dispenser.dasaniStock.size();
+				double restockCost = toRestock * (dispenser.dasaniStock.get(0).getPrice() / 2);
+				dispenser.myBank.setIncome(dispenser.myBank.getIncome() - restockCost);
+				restockSummary.setText("Lays currently on hand: " + onHand + "\nQuantity ordered: " + toRestock + "\nNew quantity: " + newOnHand + "\n\nTotal Cost: "
+						+ restockCost);
+				ReceiptBox.display(restockSummary);
+			}else{
+				restockSummary.setText("List is empty");
+				ReceiptBox.display(restockSummary);
+			}
+		});
+		
+		restockBackButton = new Button("Back");
+		GridPane.setConstraints(restockBackButton, 0, 0);
+		restockBackButton.setMinSize(150, 50);
+		restockBackButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		restockBackButton.setOnAction(e -> window.setScene(bossHome));
+		
+		Label bankInfoLabel = new Label();
+		
+		bankBackButton = new Button("Back");
+		GridPane.setConstraints(bankBackButton, 0, 0);
+		bankBackButton.setMinSize(150, 50);
+		bankBackButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		bankBackButton.setOnAction(e -> window.setScene(bossHome));
+		
+		bankButton = new Button("Bank");
+		GridPane.setConstraints(bankButton, 0, 4);
+		bankButton.setMinSize(250, 50);
+		bankButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		bankButton.setOnAction(e -> window.setScene(bankScene));
+		
+		profitsButton = new Button("Profits");
+		GridPane.setConstraints(profitsButton, 0, 1);
+		profitsButton.setMinSize(250, 50);
+		profitsButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		profitsButton.setOnAction(e -> {
+			double profits = dispenser.myBank.getIncome();
+			bankInfoLabel.setText("Vend-O-Matic 6000! profits to date: $" + Double.toString(profits) + "0");
+			ReceiptBox.display(bankInfoLabel);
+		});
+		
+		changeAvailableButton = new Button("Change Available");
+		GridPane.setConstraints(changeAvailableButton, 0, 2);
+		changeAvailableButton.setMinSize(250, 50);
+		changeAvailableButton.setStyle("-fx-background-color: #3c7fb1, linear-gradient(#fafdfe, #e8f5fc), linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);" +
+				"-fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-padding: 3 30 3 30; -fx-text-fill: black; -fx-font-size: 14px;");
+		changeAvailableButton.setOnAction(e -> {
+			double changeAvailable = dispenser.myBank.getChangeAvailable();
+			bankInfoLabel.setText("Vend-O-Matic 6000! change available: $" + Double.toString(changeAvailable) + "0");
+			ReceiptBox.display(bankInfoLabel);
+		});
+		
 		
 		Label enterPinLabel = new Label("Enter your PIN");
 		GridPane.setConstraints(enterPinLabel, 1, 1, 3, 1);
@@ -1394,6 +1836,25 @@ public class Dispenser extends Application{
 		
 		BackgroundImage background = new BackgroundImage(backgroundImage, null, null, null, null);
 		Background newBackground = new Background(background);
+		
+		GridPane bankLayout = new GridPane();
+		bankLayout.setPadding(new Insets(10, 10, 10, 10));
+		bankLayout.setVgap(10);
+		bankLayout.setHgap(8);
+		bankLayout.setBackground(newBackground);
+		bankLayout.setAlignment(Pos.CENTER);
+		bankLayout.getChildren().addAll(bankBackButton, profitsButton, changeAvailableButton);
+		
+		GridPane restockHomeLayout = new GridPane();
+		restockHomeLayout.setPadding(new Insets(10, 10, 10, 10));
+		restockHomeLayout.setVgap(10);
+		restockHomeLayout.setHgap(8);
+		restockHomeLayout.setAlignment(Pos.CENTER);
+		restockHomeLayout.setBackground(newBackground);
+		restockHomeLayout.getChildren().addAll(laysRestockButton, doritosRestockButton, missVickiesRestockButton, sunChipsRestockButton, mandmRestockButton,
+				snickersRestockButton, starburstRestockButton, skittlesRestockButton, tridentRestockButton, bigRedRestockButton, wrigleysRestockButton,
+				extraRestockButton, cocaColaRestockButton, spriteRestockButton, minuteMaidRestockButton, dasaniRestockButton, restockBackButton);
+		
 		
 		//Sets the layout for the home screen.
 		GridPane homeLayout = new GridPane();
@@ -1455,7 +1916,7 @@ public class Dispenser extends Application{
 		insertMoney.setHgap(8);
 		insertMoney.setAlignment(Pos.CENTER);
 		insertMoney.setBackground(newBackground);
-		insertMoney.getChildren().addAll(oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel, loginButton);
+		insertMoney.getChildren().addAll(simulationButton, oneDollarButton, fiveDollarButton, tenDollarButton, twentyDollarButton, addMoneyWelcomeLabel, loginButton);
 		
 		GridPane loginGrid = new GridPane();
 		loginGrid.setPadding(new Insets(10, 10, 10, 10));
@@ -1472,7 +1933,7 @@ public class Dispenser extends Application{
 		bossHomeGrid.setHgap(8);
 		bossHomeGrid.setAlignment(Pos.CENTER);
 		bossHomeGrid.setBackground(newBackground);
-		bossHomeGrid.getChildren().addAll(bossHomeBackButton, myVendingMachinesButton);
+		bossHomeGrid.getChildren().addAll(bossHomeBackButton, myVendingMachinesButton, restockButton, bankButton);
 		
 		GridPane myVendingMachinesGrid = new GridPane();
 		myVendingMachinesGrid.setPadding(new Insets(10, 10, 10, 10));
@@ -1494,6 +1955,8 @@ public class Dispenser extends Application{
 		login = new Scene(loginGrid, 545, 740);
 		bossHome = new Scene(bossHomeGrid, 545, 740);
 		myVendingMachines = new Scene(myVendingMachinesGrid, 545, 740);
+		restockScene = new Scene(restockHomeLayout, 545, 740);
+		bankScene = new Scene(bankLayout, 545, 740);
 	
 		
 		//Sets the home screen to display on start.
